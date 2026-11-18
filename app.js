@@ -35,6 +35,9 @@ function cleanBlock(b) {
 // turn a Vimeo or YouTube page link into an embeddable player URL
 function embedUrl(u) {
   let m;
+  if (/^https:\/\/player\.vimeo\.com\/video\/\d+/.test(u)) return u;
+  // Knight Lab JuxtaposeJS before/after sliders
+  if (/^https:\/\/cdn\.knightlab\.com\/libs\/juxtapose\//.test(u)) return u;
   if ((m = u.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/(\w+))?/))) return `https://player.vimeo.com/video/${m[1]}${m[2] ? '?h=' + m[2] : ''}`;
   if ((m = u.match(/(?:youtube(?:-nocookie)?\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{11})/))) return `https://www.youtube-nocookie.com/embed/${m[1]}?rel=0&playsinline=1`;
   // Adobe/Behance-hosted video player (from Behance and Adobe Portfolio pages)
@@ -172,7 +175,7 @@ const APPS = {
     const render = () => {
       const q = input.value.trim().toLowerCase();
       const list = PROJECTS.filter(p => (!chip || p.cat === chip) && (!q || `${p.title} ${p.client} ${FOLDERS[p.cat].name}`.toLowerCase().includes(q)));
-      res.innerHTML = list.length ? list.map(card).join('') : `<p class="empty">No results for “${esc(q)}”. <a href="${SITE}" target="_blank" rel="noopener">Search the full site ↗</a></p>`;
+      res.innerHTML = list.length ? list.map(card).join('') : `<p class="empty">No results for “${esc(q)}”.</p>`;
     };
     input.addEventListener('input', render);
     el.querySelectorAll('.chip').forEach(c => c.onclick = () => {
@@ -234,7 +237,7 @@ const APPS = {
       body: `<div class="profile">
           <div class="avatar">${avatarHtml()}</div>
           <h3>${esc(S.name)}</h3><p>${esc(S.role)}</p>
-          <div class="stats"><div><b>${PROJECTS.length}</b><span>Featured</span></div><div><b>${brands}</b><span>Brands</span></div><div><b>${Object.keys(FOLDERS).length}</b><span>Categories</span></div></div>
+          <div class="stats"><div><b>${PROJECTS.length}</b><span>Projects</span></div><div><b>${brands}</b><span>Brands</span></div><div><b>${Object.keys(FOLDERS).length}</b><span>Categories</span></div></div>
         </div>
         <div class="note">
           <div class="tags">${Object.values(FOLDERS).map(f => `<span class="tag" style="--c:${f.soft}">${f.name}</span>`).join('')}<span class="tag" style="--c:#d6f2ec">AI</span></div>
@@ -273,10 +276,10 @@ function openFolder(key) {
   const items = PROJECTS.filter(p => p.cat === key);
   const files = items.length
     ? `<div class="files">${items.map(p => `<button class="file" data-proj="${p.slug}"><img src="${p.img}" alt="" loading="lazy">${esc(p.title)}</button>`).join('')}</div>`
-    : `<div class="note"><p>This folder lives on the main site. It has event openers, stage visuals and music-video work.</p></div>`;
+    : `<div class="note"><p>Nothing here yet.</p></div>`;
   openWin('folder:' + key, {
-    title: `${f.name} — ${items.length || '…'} items`, w: 520,
-    body: `${files}<div class="folder-note"><span>Showing featured picks</span><a class="btn ghost" href="${SITE}/${f.page}" target="_blank" rel="noopener">All ${f.name} work ↗</a></div>`,
+    title: `${f.name} — ${items.length} item${items.length === 1 ? '' : 's'}`, w: 520,
+    body: files,
   });
 }
 
@@ -325,7 +328,9 @@ function openProject(slug) {
 
 function clientList() {
   const names = [...new Set(PROJECTS.map(p => p.client).filter(c => c && c !== 'Personal'))].map(c => slugify(c).replace(/-/g, ''));
-  const rows = []; for (let i = 0; i < names.length; i += 5) rows.push(names.slice(i, i + 5).join('  '));
+  const shown = names.slice(0, 15), rows = [];
+  for (let i = 0; i < shown.length; i += 5) rows.push(shown.slice(i, i + 5).join('  '));
+  if (names.length > shown.length) rows.push(`+${names.length - shown.length} more`);
   return rows.join('\n');
 }
 function socials() {
