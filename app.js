@@ -48,6 +48,7 @@ const AVATAR = `<svg viewBox="0 0 92 92" fill="none" stroke="#141414" stroke-wid
   <path d="M29 40c0-14 8-22 18-22s17 7 17 20c-6-2-12-7-14-12-4 8-13 12-21 14z" fill="#141414"/>
   <circle cx="39.5" cy="46" r="1.6" fill="#141414"/><circle cx="52.5" cy="46" r="1.6" fill="#141414"/>
   <path d="M46 48v6h-3M41 58c3 2 7 2 10 0"/><path d="M33 46h12M47 46h12" stroke-width="1.6"/><rect x="33" y="42" width="11" height="8" rx="4"/><rect x="48" y="42" width="11" height="8" rx="4"/></svg>`;
+const avatarHtml = () => { const u = safeUrl(S.avatar); return u ? `<img src="${u}" alt="${esc(S.name || 'Profile picture')}">` : AVATAR; };
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 // ---------- window manager ----------
@@ -219,7 +220,7 @@ const APPS = {
     return openWin('about', {
       title: 'about.txt', w: 440, x: 200, y: 40,
       body: `<div class="profile">
-          <div class="avatar">${AVATAR}</div>
+          <div class="avatar">${avatarHtml()}</div>
           <h3>${esc(S.name)}</h3><p>${esc(S.role)}</p>
           ${S.contact_link ? `<a class="btn" href="${safeUrl(S.contact_link)}" target="_blank" rel="noopener">Send message →</a>` : ''}
           <div class="stats"><div><b>${PROJECTS.length}</b><span>Featured</span></div><div><b>${brands}</b><span>Brands</span></div><div><b>${Object.keys(FOLDERS).length}</b><span>Categories</span></div></div>
@@ -315,7 +316,7 @@ tickClock(); setInterval(tickClock, 15000);
 // ---------- centre widget ----------
 function initWidget() {
   const wg = document.querySelector('.widget');
-  wg.querySelector('.wg-avatar').innerHTML = AVATAR;
+  wg.querySelector('.wg-avatar').innerHTML = avatarHtml();
   wg.querySelector('.wg-handle').textContent = S.handle || slugify(S.name || '').replace(/-/g, '');
   wg.querySelector('.wg-role').textContent = S.role || '';
   // clock

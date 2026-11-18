@@ -63,7 +63,7 @@ button.wg{transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
 button.wg:hover{transform:translateY(-3px)}
 .wg-profile{display:flex;align-items:center;gap:12px;padding:12px 14px}
 .wg-avatar{width:58px;height:58px;flex:none;border-radius:50%;border:var(--stroke) solid var(--ink);background:var(--blue-soft);overflow:hidden}
-.wg-avatar svg{width:100%;height:100%;display:block}
+.wg-avatar svg,.wg-avatar img{width:100%;height:100%;object-fit:cover;display:block}
 .wg-handle{display:block;font:800 17px/1.15 var(--display)}
 .wg-role{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
 .wg-clock{display:flex;align-items:center;gap:10px;padding:12px 14px;font-variant-numeric:tabular-nums}
@@ -184,7 +184,7 @@ button.wg:hover{transform:translateY(-3px)}
 /* profile (kit profile screen) */
 .profile{background:var(--blue);color:var(--paper);text-align:center;padding:22px 20px 18px;border-bottom:var(--stroke) solid var(--ink)}
 .avatar{width:92px;height:92px;margin:0 auto 10px;border-radius:50%;border:var(--stroke) solid var(--ink);background:var(--yellow);overflow:hidden}
-.avatar svg{width:100%;height:100%}
+.avatar svg,.avatar img{width:100%;height:100%;object-fit:cover;display:block}
 .profile h3{margin:0;font:800 24px/1.1 var(--display)}
 .profile p{margin:2px 0 14px;opacity:.85;font-size:13px}
 .profile .btn{background:var(--paper);color:var(--ink)}
