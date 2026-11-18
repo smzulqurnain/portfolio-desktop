@@ -2,8 +2,8 @@
 # Sign in at https://app.pagescms.org with GitHub and pick this repo.
 
 media:
-  input: assets/thumbs
-  output: assets/thumbs
+  input: assets
+  output: assets
 
 content:
   - name: projects
