@@ -8,7 +8,7 @@
       "blocks": [
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/f08c9796-4cfb-43e3-b08e-57da79790d5d_rw_1920.png?h=a223a3dfc085eecff03e77a237c04985"
+          "image": "assets/projects/perodua-ev-launch/01.png"
         },
         {
           "kind": "text",
@@ -45,17 +45,17 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/2cbb738c-9fe6-468c-97e8-bc1bc8ac9191_rw_1200.gif?h=579bb4cb602ba1ef47d38f1d059e0a4f",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/450b5200-e2ea-4249-900b-b7ec5a481178_rw_1200.gif?h=f352c6b876b1f820705c86f027887d73",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/036989f3-bf1a-4b6a-aac0-f0be21aa471f_rw_1200.gif?h=923d1a92d6cd56dfa5d89f56b7124756"
+            "assets/projects/perodua-ev-launch/02.mp4",
+            "assets/projects/perodua-ev-launch/03.mp4",
+            "assets/projects/perodua-ev-launch/04.mp4"
           ]
         },
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/b15f25d8-5688-45ab-bb58-880e98e5e1e3_rw_1200.gif?h=b38858ab7898ef6127fa261935059977",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/962cdbbe-f700-45da-8c64-89b38a41a319_rw_1200.gif?h=ee1cd1782e00b7f3922125184eea6062",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/158000f7-6b7e-42cd-a374-f45a07c19a11_rw_1200.gif?h=a159f8f6cb66d010bae02088ca064cb4"
+            "assets/projects/perodua-ev-launch/05.mp4",
+            "assets/projects/perodua-ev-launch/06.mp4",
+            "assets/projects/perodua-ev-launch/07.mp4"
           ]
         },
         {
@@ -72,7 +72,7 @@
       "blocks": [
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/8057e6be-9582-4307-b4c3-3684a6cb05e9_rw_1920.png?h=4b4a6aaa8959caabec82702e1799f15b"
+          "image": "assets/projects/mg-cyberster-launch/01.png"
         },
         {
           "kind": "text",
@@ -111,7 +111,7 @@
       "blocks": [
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/00cc98f8-42dd-4d55-aec7-fb7b4b125c7f_rw_1920.jpg?h=3c0693a78433b6203b7abfe5a5e3ad32"
+          "image": "assets/projects/mg-ev4-launch/01.jpg"
         },
         {
           "kind": "text",
@@ -129,8 +129,8 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/0d6f8a56-3398-46ec-9b58-abf241ca0b60_rw_1200.gif?h=d7844458334d467b782a5239c189ada5",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/4dd8be67-c864-4b6c-9142-985104826cde_rw_1200.gif?h=48844bebfb601a60fefd0848e81ee67c"
+            "assets/projects/mg-ev4-launch/02.mp4",
+            "assets/projects/mg-ev4-launch/03.mp4"
           ]
         },
         {
@@ -206,7 +206,7 @@
       "blocks": [
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/7cefb997-3962-4825-bb91-9c1b166983f7_rw_1200.jpg?h=11d314f5d8345441f78a576edf7ec930"
+          "image": "assets/projects/rejoice-poof-tvc/01.jpg"
         },
         {
           "kind": "video",
@@ -224,10 +224,10 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/013c447f-e039-41ca-b446-8d1bad4c7707_rw_1200.jpg?h=c134e97ae7eca4259cf59ee0062d9246",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/c8c9b671-c7c7-41c7-8425-21bed820cfab_rw_1200.jpg?h=70e84f1a3cfa5a98412ef57da300bee3",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/8a6aebb2-59ca-4e2f-b43c-fc3d3b577a2a_rw_1200.jpg?h=274947cb1b70ba4128e68aa2bd17dfea",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/f8330a5b-e67e-4fef-8b9e-f88e603fa934_rw_1200.jpg?h=d6bf84ff7ffca644cf8c2128bb86c0cb"
+            "assets/projects/rejoice-poof-tvc/02.jpg",
+            "assets/projects/rejoice-poof-tvc/03.jpg",
+            "assets/projects/rejoice-poof-tvc/04.jpg",
+            "assets/projects/rejoice-poof-tvc/05.jpg"
           ]
         },
         {
@@ -237,11 +237,11 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/07108ec3-58e6-4f43-a297-cf817b832c11_rw_1200.jpg?h=31213402cab3371f64415e8b77d5a949",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/b7b48b68-78b2-4b60-bc1e-131bd9d7a644_rw_1200.jpg?h=23367a55bdf22ef9a30ea7d16c96e87b",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/7f768331-171f-4d50-8a72-f73c2cb24edf_rw_1200.jpg?h=e7bf6b725957500b5bb96a398c495541",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/986ec528-6275-4d23-bb76-ea19b27065c2_rw_1200.jpg?h=77eedd4f593e62c33ea6150c250418aa",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/4c155ba6-be5f-492c-9a7d-37e4dd6d6a84_rw_1200.jpg?h=75f3d4a427fb34db0c86932031fd82d4"
+            "assets/projects/rejoice-poof-tvc/06.jpg",
+            "assets/projects/rejoice-poof-tvc/07.jpg",
+            "assets/projects/rejoice-poof-tvc/08.jpg",
+            "assets/projects/rejoice-poof-tvc/09.jpg",
+            "assets/projects/rejoice-poof-tvc/10.jpg"
           ]
         },
         {
@@ -258,7 +258,7 @@
       "blocks": [
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/5f1fdb83-6012-416b-8498-45d8888a1cc8_rw_1920.jpg?h=a170f1bc2ad873e3fd96f423d4c31488"
+          "image": "assets/projects/pantene-id-sansa/01.jpg"
         },
         {
           "kind": "video",
@@ -272,8 +272,8 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/a9ae5703-b48e-4179-a36d-9b4de3cd80bf_rw_1200.gif?h=c3d51bca77b9837d62401abe1ea452e0",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/731d8302-f16b-45ef-ad33-4cd216c1bfb6_rw_1200.gif?h=1d22741c8d19fdd03f0725541b77840c"
+            "assets/projects/pantene-id-sansa/02.mp4",
+            "assets/projects/pantene-id-sansa/03.mp4"
           ]
         },
         {
@@ -282,7 +282,7 @@
         },
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/6be91849-ef1a-49e3-b17b-b2f978e37140_rw_1200.gif?h=210ffb600b649310b2546361eaed054d"
+          "image": "assets/projects/pantene-id-sansa/04.mp4"
         },
         {
           "kind": "text",
@@ -298,33 +298,33 @@
       "blocks": [
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/e54d11fc-bfba-41e2-a877-b78a9933fd1f_rw_1920.png?h=0ad100f2e247320c30783297e56e6d0f"
+          "image": "assets/projects/propertyguru-datasense/01.png"
         },
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/d72fa9c8-e826-41b2-9a72-309888ed1278_rw_1200.gif?h=7db972d3e7b399729cc050bb8bb33ea7",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/8101d501-08c6-4e61-9062-07e7f53c6743_rw_1200.gif?h=3cd37c6a7fdd5d073a9f0148ca935dd4",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/d0cbfd74-97f0-496e-b239-c9c7cca4b011_rw_1200.gif?h=01fe18e04659c7d9a8224537f433b64e",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/215678c0-548b-4d0c-9d4e-f32ec8730157_rw_1200.gif?h=754a7d9efe713ce773a8d82f64c8c1f5"
+            "assets/projects/propertyguru-datasense/02.mp4",
+            "assets/projects/propertyguru-datasense/03.mp4",
+            "assets/projects/propertyguru-datasense/04.mp4",
+            "assets/projects/propertyguru-datasense/05.mp4"
           ]
         },
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/0b7ab731-13fa-4f0d-8639-62ba870e6014_rw_1200.gif?h=a2ec51e93047ed78754f0f96a21d7dbc",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/5cb6a23a-2d12-40fb-a980-3e7e08b330fe_rw_1200.gif?h=71cae296d860632a09106e6f26ae5c18",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/1854ecef-51b8-4831-b680-2b1677fec4e0_rw_1200.gif?h=bdfbaa1aea9f08abf93d7c86e66b76db",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/a5bc3865-6e64-4d9a-93a3-084b1043986c_rw_1200.gif?h=24b4b4d6c80edf37a95356f08819c2c4"
+            "assets/projects/propertyguru-datasense/06.mp4",
+            "assets/projects/propertyguru-datasense/07.mp4",
+            "assets/projects/propertyguru-datasense/08.mp4",
+            "assets/projects/propertyguru-datasense/09.mp4"
           ]
         },
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/c0aa4c2d-b296-409c-a6a8-df55604da3d4_rw_1200.gif?h=115cf543286b6f51da8c88e1c7b7ea4c",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/2fb38f43-320c-4730-b07d-ccc60976a11c_rw_1200.gif?h=77e73138eab55ae0441f202d19f4ee6f",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/200668d2-e844-4fcb-9516-fe4c17483959_rw_1200.gif?h=f104e21651ced7d88755f6160599e65a",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/5817cdc1-b8ca-4730-b42e-c95fbfb48613_rw_1200.gif?h=e86feb73faeef000b65347946ea3a59b"
+            "assets/projects/propertyguru-datasense/10.mp4",
+            "assets/projects/propertyguru-datasense/11.mp4",
+            "assets/projects/propertyguru-datasense/12.mp4",
+            "assets/projects/propertyguru-datasense/13.mp4"
           ]
         },
         {
@@ -334,11 +334,11 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/0bf2e069-0748-4776-bf49-a8ab01c86dab_rw_1200.gif?h=738f3ee3fb83370919941ce877d57b4b",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/4c7ed9b0-826f-4438-841b-14a369db50ff_rw_1200.gif?h=4e480398e93d3b4e199d29bc81999b80",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/0f09f452-32e6-4f50-9497-2bec99ac27d6_rw_1200.gif?h=bd18e4e5251a3a64ef3757a680ea9c3b",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/6a583617-f2f9-460a-ab6d-72cd3dd0d809_rw_1200.gif?h=00d5b2e980e5eb7d7b5599fdd9dba869",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/d44b1be0-0e2a-43a2-9227-37d007e73887_rw_1200.gif?h=70e5dc156dadd64de7f25c26659f6125"
+            "assets/projects/propertyguru-datasense/14.mp4",
+            "assets/projects/propertyguru-datasense/15.mp4",
+            "assets/projects/propertyguru-datasense/16.mp4",
+            "assets/projects/propertyguru-datasense/17.mp4",
+            "assets/projects/propertyguru-datasense/18.mp4"
           ]
         },
         {
@@ -374,7 +374,7 @@
       "blocks": [
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/991d37c0-cffa-40df-9e54-f25db13f738f_rw_1920.jpg?h=f28a35ab7ddf66434bb59caee951d550"
+          "image": "assets/projects/mitsubishi-triton-ai-test/01.jpg"
         },
         {
           "kind": "text",
@@ -392,11 +392,11 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/7db9063d-60a4-4e13-8de4-032e0ec29ecd_rw_1200.jpg?h=5ba5779a521a33d264e6b8c78cb63513",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/ffcfa586-ab3a-445a-ad1a-2161e8db3b87_rw_1200.jpg?h=81110e9149364c78130d6897087b4ff5",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/85691bb8-fa56-43b4-9e5f-b441d44dd544_rw_1200.jpg?h=a5f5d3bc27b2ecd1b607376ff15d057a",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/b4f2238a-85cd-4da6-b6f7-38ac9cfba48a_rw_1200.jpg?h=585a0f006d79ba3396216a683ca53088",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/364db890-3fb6-4671-9e80-a976e49bfb8e_rw_1200.jpg?h=482cc4cb82abb71e055fdb9a9bae918e"
+            "assets/projects/mitsubishi-triton-ai-test/02.jpg",
+            "assets/projects/mitsubishi-triton-ai-test/03.jpg",
+            "assets/projects/mitsubishi-triton-ai-test/04.jpg",
+            "assets/projects/mitsubishi-triton-ai-test/05.jpg",
+            "assets/projects/mitsubishi-triton-ai-test/06.jpg"
           ]
         },
         {
@@ -406,15 +406,15 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/21a13469-a76b-4cb7-8f12-ccbd0c6540ba_rw_1200.jpg?h=29a22e01725d6ba7abc5a8f863e535b4",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/8f4c0ff8-8068-4c4a-ae33-1619d66afe7b_rw_600.jpg?h=af1322b0ab0ebcdbf1643ed3d0066992",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/6b42840d-a258-4e2e-95b4-8f587e1db312_rw_600.jpg?h=129215425dce9d3bd2a7874d9bd7ce92",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/8815a069-a869-4991-bcd3-aaebefaf107f_rw_600.jpg?h=fca6ac2ecf7d531e345b1e866c1f6fa3"
+            "assets/projects/mitsubishi-triton-ai-test/07.jpg",
+            "assets/projects/mitsubishi-triton-ai-test/08.jpg",
+            "assets/projects/mitsubishi-triton-ai-test/09.jpg",
+            "assets/projects/mitsubishi-triton-ai-test/10.jpg"
           ]
         },
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/c78ca5e0-55dd-4882-b2f0-0453d2c8cece_rw_1920.jpg?h=26fc9e8d6071660811ae9213d7ce80b4"
+          "image": "assets/projects/mitsubishi-triton-ai-test/11.jpg"
         }
       ]
     },
@@ -455,10 +455,10 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/a66c723d-465f-4253-9f85-9b62fa7237a2_rw_1200.png?h=93673b1bd5d636e78abd2bd8238244da",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/51f3215e-780f-4673-b421-ef8a36dbdbc5_rw_1200.png?h=bbd045cc9f86196581dca4393ca62af7",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/37a5b793-a6ed-45d0-9209-ef272e179f47_rw_1200.png?h=5bb94388c31aa4ea597eb0c0a025620c",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/b5f997b8-fd90-4360-b572-be7f18e76984_rw_1200.png?h=c379d97c07ab48ef233bd10cd5888bbf"
+            "assets/projects/ai-projects/01.png",
+            "assets/projects/ai-projects/02.png",
+            "assets/projects/ai-projects/03.png",
+            "assets/projects/ai-projects/04.png"
           ]
         },
         {
@@ -473,8 +473,8 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/4b1634ee-ce95-4baf-8fc8-6282d449ce85_rw_1200.png?h=61f0a882fcd0e49197fd0cdb28819360",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/7dfb4c73-1f75-4901-981a-d08912aaa6c2_rw_1200.png?h=5fedc81bb30885233bed755e88624984"
+            "assets/projects/ai-projects/05.png",
+            "assets/projects/ai-projects/06.png"
           ]
         },
         {
@@ -484,26 +484,26 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/610f9ac4-1d7c-46c1-a094-e9a128e08196_rw_1200.jpg?h=449820325916b895162b8361474fe698",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/48f35c76-209c-4385-b519-c28634bdaee9_rw_1200.jpg?h=90de9fab552fcacea74867296fa4bfd9"
+            "assets/projects/ai-projects/07.jpg",
+            "assets/projects/ai-projects/08.jpg"
           ]
         },
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/75348c54-2134-461c-ba2e-f419dc03678e_rw_1200.jpg?h=3154366dfd8764f3ec3617344146fb51",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/07c0cd3d-237f-4177-a815-eed3627e2941_rw_1200.jpg?h=70437fd8169d011a470d29153ffde047",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/6791416f-4e76-4465-a974-c6cff511817c_rw_1200.jpg?h=14bdadaf8a611825f4b9ed752036483d",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/d68068e6-97ab-4afe-887f-1ac90677cbd7_rw_1200.jpg?h=e6cdf4842de85b9ba4cc52be9a84f609",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/823fce3e-a8b1-462b-8941-639a75cc48e3_rw_1200.jpg?h=f4b16c3061320e00ac50c9b1e436e2ef"
+            "assets/projects/ai-projects/09.jpg",
+            "assets/projects/ai-projects/10.jpg",
+            "assets/projects/ai-projects/11.jpg",
+            "assets/projects/ai-projects/12.jpg",
+            "assets/projects/ai-projects/13.jpg"
           ]
         },
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/01c2b579-9515-4eb1-a502-de81f0c4aadc_rw_1200.jpg?h=7982a3dc266d64c7a617ca18955bbd5d",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/26cab39d-a47c-4d2d-9a4d-9632e024454e_rw_1200.jpg?h=4564ae0ddf35217dbbd67bb4f71411ae",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/87cc2f51-3a12-4148-a05e-4a9e998307af_rw_1200.jpg?h=f88feacece66e073963b72aa900109f9"
+            "assets/projects/ai-projects/14.jpg",
+            "assets/projects/ai-projects/15.jpg",
+            "assets/projects/ai-projects/16.jpg"
           ]
         },
         {
@@ -524,7 +524,7 @@
         },
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/af43a54e-c092-4091-8697-f6172e50ad55_rw_1920.gif?h=a39d6021dfcfc5926abe7c65b97449e4"
+          "image": "assets/projects/yeo-s-social-media/01.mp4"
         },
         {
           "kind": "text",
@@ -537,20 +537,20 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/ea65ad43-65ee-47f6-9374-2a3de6ab18ac_rw_600.gif?h=d1da42fb4cf6a8a02c9796c3f559f282",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/82b5eca3-4db4-427b-bb0a-00288ded29af_rw_600.gif?h=ca5a66594ed4d61c7e6308c84823107a",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/89708dad-3e45-471c-9254-29a2095bd837_rw_600.gif?h=daf9afa3d3ab5063e6f352a22378815e",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/1714d51f-7abc-49a2-8172-9938a070e48c_rw_600.gif?h=c3f1344cd518a34f3e6f41848f6e83f5",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/d285b1e0-456a-4567-a4cc-b1c2d609defe_rw_600.gif?h=fda6fcd88474a4c4261afe55ac521786",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/3bb73d1b-3849-4e49-ab75-a1e41070e362_rw_600.gif?h=72842c4f3e9c7a15743a2757785cf3b7",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/a4c14698-abde-4ab4-b24a-f8fd67369072_rw_600.gif?h=a3c4ec1ef80aab9a76bffbf3c2bb6e92",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/75c32f04-d0eb-40c7-917b-365a42dc0c61_rw_600.gif?h=f69b3b6f027506d24a3e7e1afa68d4e3",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/32ebfca7-632a-49c0-bc4b-04f56ee9fb10_rw_600.gif?h=6125339a3a3f79b80b1aafa9afc09f7e",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/0b07b326-fa8c-4042-83df-a22c1ef21d56_rw_600.gif?h=1cf11fb8b6dfb783fe26dbd007ae4b31",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/515c87ef-3e2b-4b46-afb6-e890936f18b7_rw_600.gif?h=f9fea55bba2dbb9fcaa8d78580f0371e",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/85e12649-c807-4f70-ab60-d69615a545e7_rw_600.gif?h=7e9f24abdd26017ce31e8b33b44d5c0b",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/f12bd53b-db07-4667-8206-b5f4b103c764_rw_600.gif?h=96a48f23a8e77abd926768da977a8f24",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/c0eb097d-700a-4174-9fcf-e09c4ec34b0a_rw_600.gif?h=4c91a77ee0d6d6c9817458022331378d"
+            "assets/projects/yeo-s-social-media/02.mp4",
+            "assets/projects/yeo-s-social-media/03.mp4",
+            "assets/projects/yeo-s-social-media/04.mp4",
+            "assets/projects/yeo-s-social-media/05.mp4",
+            "assets/projects/yeo-s-social-media/06.mp4",
+            "assets/projects/yeo-s-social-media/07.mp4",
+            "assets/projects/yeo-s-social-media/08.mp4",
+            "assets/projects/yeo-s-social-media/09.mp4",
+            "assets/projects/yeo-s-social-media/10.mp4",
+            "assets/projects/yeo-s-social-media/11.mp4",
+            "assets/projects/yeo-s-social-media/12.mp4",
+            "assets/projects/yeo-s-social-media/13.mp4",
+            "assets/projects/yeo-s-social-media/14.mp4",
+            "assets/projects/yeo-s-social-media/15.mp4"
           ]
         },
         {
@@ -560,20 +560,20 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/46ad7839-a26c-4c1d-928f-09e401682a3e_rw_600.gif?h=91a58a5ba361cb8266c040cc6986e4af",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/fcc39d93-8fef-4ff6-9dd8-4949f3e3aeb3_rw_600.gif?h=8f6750d74ee7038ed60ab3523e84d93f",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/af5c1089-b5b5-4a0c-86be-1b864c962181_rw_600.gif?h=df2240b3d4a24259efbbb4b90157399a",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/e76149a6-b383-44ed-85f6-ebfd31dbc7ef_rw_600.gif?h=6be988bbaa2135943499847dc0e89e43",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/53208466-f447-4e56-8fa8-86fe37312d86_rw_600.gif?h=9ced84f29fe0b7fb8dc693398f65eab8",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/4cccc8a7-8f94-40b5-8215-57a7e415fcaa_rw_600.gif?h=854e3cc0d2ac2f2251f40edb9ca8dcdb",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/473e97e8-d968-428a-bfe7-7ef2eb0a6987_rw_600.gif?h=88dbc290b1708dc4e7f7f9bfbfc2deb1",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/3d6223b4-6a1b-486f-9dd9-16e37248e81c_rw_600.gif?h=699e2b67c43f0502c5a84ea8198e6ec6",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/f6020964-7830-42c9-bfcf-0b2243428cdb_rw_600.gif?h=3249997422cbf1b93c2bf488c2aaae8e",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/aad0aa79-3046-4349-a163-c4c7ec08910f_rw_600.gif?h=d74ec75f4c1a776d7b5fb7948e75c48e",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/4a2fecf0-6a71-453f-9b10-63809341be8c_rw_600.gif?h=9950aebaf78da6016023bf5cecc63fcd",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/37d7dc53-f3f5-4335-b675-62a1440ba2f4_rw_600.gif?h=0ac17b8a06a9b99b74442fce5149e768",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/d77a2172-7d0f-4de4-b53b-7ac362d839ca_rw_600.gif?h=987e8ec198f9bde1676c4d232bf62e5b",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/b3ecf6cb-3bab-4fc1-8ab0-27f6c80acfd0_rw_600.gif?h=39d2ebd7b64002c0b3753c5ba1e4992f"
+            "assets/projects/yeo-s-social-media/16.mp4",
+            "assets/projects/yeo-s-social-media/17.mp4",
+            "assets/projects/yeo-s-social-media/18.mp4",
+            "assets/projects/yeo-s-social-media/19.mp4",
+            "assets/projects/yeo-s-social-media/20.mp4",
+            "assets/projects/yeo-s-social-media/21.mp4",
+            "assets/projects/yeo-s-social-media/22.mp4",
+            "assets/projects/yeo-s-social-media/23.mp4",
+            "assets/projects/yeo-s-social-media/24.mp4",
+            "assets/projects/yeo-s-social-media/25.mp4",
+            "assets/projects/yeo-s-social-media/26.mp4",
+            "assets/projects/yeo-s-social-media/27.mp4",
+            "assets/projects/yeo-s-social-media/28.mp4",
+            "assets/projects/yeo-s-social-media/29.mp4"
           ]
         },
         {
@@ -583,20 +583,20 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/8194bee2-9f58-4c47-90af-d0ddd0f2ea35_rw_600.gif?h=725cb8d0c96a94418e3c8da0b26623db",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/48c3b210-eaee-408d-be68-cee74b12c863_rw_600.gif?h=a04796431953e3f16cdf1497ec08c50f",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/9baf9272-8fea-4e2c-8db5-b55e4b705c6a_rw_600.gif?h=b9f6f96657f31fe4309f738ebf6d672a",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/900a74a9-acd8-4365-b7a5-940e37b80277_rw_600.gif?h=1b522f0db602214eb2654f085c09212e",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/64971276-70b1-4edb-978a-f0a6b789ea76_rw_600.gif?h=8c265c3688506892d6128557f5dfff99",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/48350ba4-4ac6-4aa0-80ed-73cb2a66a7b3_rw_600.gif?h=9f3b6a55be0a5bd9b49594874c300dce",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/4a9ab7b0-4416-48df-ad57-decda5170913_rw_600.gif?h=69b2cef07d086cdc9a0975b39f1880a9",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/f9ff8bf8-1afa-4355-bed6-406abf31c423_rw_600.gif?h=9d9e940f75e41c04ed1885a36651973f",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/fd4b22e0-5a1b-49fe-9246-b7e006b5de7a_rw_600.gif?h=963dc5db049d9e0a48bbc7f7ace17c27",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/7fa203b1-1b53-44d9-b6b8-d287cfada8d3_rw_600.gif?h=f10897282ba678822552e5f730596469",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/ab1ec9c6-64ce-4ecc-98f2-c9a8af43bad8_rw_600.gif?h=c25c193db8454dbddc5ae173e53a7be2",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/b8ffa31c-628e-4e64-83c0-ed7f0303d22a_rw_600.gif?h=9d7b4ee0029fdf16f6f1f64f5b4ad218",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/ec97a945-2fa6-42fe-9767-e3c873921008_rw_600.gif?h=e0355563b7486d640a41df36348ed091",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/1a29cebe-ec76-4e1a-be52-eed93c7bf402_rw_600.gif?h=5e2402069aa72f5ea799337b6235e5a1"
+            "assets/projects/yeo-s-social-media/30.mp4",
+            "assets/projects/yeo-s-social-media/31.mp4",
+            "assets/projects/yeo-s-social-media/32.mp4",
+            "assets/projects/yeo-s-social-media/33.mp4",
+            "assets/projects/yeo-s-social-media/34.mp4",
+            "assets/projects/yeo-s-social-media/35.mp4",
+            "assets/projects/yeo-s-social-media/36.mp4",
+            "assets/projects/yeo-s-social-media/37.mp4",
+            "assets/projects/yeo-s-social-media/38.mp4",
+            "assets/projects/yeo-s-social-media/39.mp4",
+            "assets/projects/yeo-s-social-media/40.mp4",
+            "assets/projects/yeo-s-social-media/41.mp4",
+            "assets/projects/yeo-s-social-media/42.mp4",
+            "assets/projects/yeo-s-social-media/43.mp4"
           ]
         },
         {
@@ -659,7 +659,7 @@
       "blocks": [
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/0afd3769-a713-4f18-81f1-9b1715ba0f2b_rw_1920.jpg?h=c1986ba59538919c445119860c96f5d5"
+          "image": "assets/projects/triton-ride-with-the-stars/01.jpg"
         },
         {
           "kind": "text",
@@ -731,23 +731,23 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/b879c02a-90fc-47fd-83d8-f0d0af1cc9c9_rw_1200.jpg?h=f1d8477e58c83afccb78f39a46372b27",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/a8041068-0550-4aec-92d6-bc898219b3f5_rw_1200.jpg?h=52791c78412b7eef7270f2ff0973ceb9",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/a46a1651-708a-41fc-8ec2-b704eec594c3_rw_1200.jpg?h=f3e847d241d936c160cb8f2bbf6ea37e",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/01bd57ef-7288-493e-b663-9e294b4ab2b8_rw_1200.jpg?h=5a84fe5e8572f817a561d42e6d5d449c",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/e2cd006c-a75c-4eb9-ab81-f88cb4f85e26_rw_1200.jpg?h=098b90b411291c6e06dac4ec4abb2a3d",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/c8d37875-f8b8-4fcf-b807-0534b46345c0_rw_1200.jpg?h=a7a13a4a797723f80fb3adad487a8c44"
+            "assets/projects/triton-ride-with-the-stars/02.jpg",
+            "assets/projects/triton-ride-with-the-stars/03.jpg",
+            "assets/projects/triton-ride-with-the-stars/04.jpg",
+            "assets/projects/triton-ride-with-the-stars/05.jpg",
+            "assets/projects/triton-ride-with-the-stars/06.jpg",
+            "assets/projects/triton-ride-with-the-stars/07.jpg"
           ]
         },
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/b6deed76-13f9-4d4e-b2ee-9c6d8a6c9470_rw_1200.jpg?h=f4084126bbb8f342ebf7f5c65cbc3e47",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/7d6f127c-531d-4f0b-beed-c4e87d0a3491_rw_1200.jpg?h=ac5ad7b72654693ed2a24578e6aa9d43",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/9e31d39a-a209-440a-904d-07cd3bc983f4_rw_1200.jpg?h=0f6485cf8f72abd43dcca0307a27b511",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/c2785942-e508-47a2-9481-e3e1d667f06b_rw_1200.jpg?h=ce83437dbd7fe96f1a219675121ea7d5",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/d638fc5d-1f5b-46e1-bd61-3459e267f620_rw_1200.jpg?h=5b269c8d2763c5f6c3d32fc849dc88f7",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/863d9b62-9b5a-4aa8-bc64-9d00189cb1e2_rw_1200.jpg?h=c55139033e2de5af2003b7fa8aa1e4a3"
+            "assets/projects/triton-ride-with-the-stars/08.jpg",
+            "assets/projects/triton-ride-with-the-stars/09.jpg",
+            "assets/projects/triton-ride-with-the-stars/10.jpg",
+            "assets/projects/triton-ride-with-the-stars/11.jpg",
+            "assets/projects/triton-ride-with-the-stars/12.jpg",
+            "assets/projects/triton-ride-with-the-stars/13.jpg"
           ]
         },
         {
@@ -798,13 +798,13 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/3d24c982-73d6-4952-b44a-a6ac856fd3ce_rw_600.gif?h=8f5b5cae6b7c7ffa9f97390c4aec313b",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/089ebd75-1c19-4f70-ac32-7b10ba3bbe3c_rw_600.gif?h=ea604d75ce43e88cff7d3810044cc2e1"
+            "assets/projects/perodua-content/01.mp4",
+            "assets/projects/perodua-content/02.mp4"
           ]
         },
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/b6be62f0-7f64-476f-b18c-aee668daf0fd_rw_1920.gif?h=62e19de5b4d597e824d8b1f8b0f1e438"
+          "image": "assets/projects/perodua-content/03.mp4"
         },
         {
           "kind": "text",
@@ -816,7 +816,7 @@
         },
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/87559b58-e0d3-475a-a0ac-cf27f77b2829_rw_1920.jpg?h=12052579d395d1be74f3cd6453b4a0a0"
+          "image": "assets/projects/perodua-content/04.jpg"
         },
         {
           "kind": "text",
@@ -829,16 +829,16 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/cf5b8607-4d63-4b72-b92e-f5ba56296560_rw_600.gif?h=a7f3aa051c0bcb2bd7b87defe2114263",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/4d885453-8031-4e4b-a29a-62987dfb3bef_rw_600.gif?h=9a3b98ddca3fff7fa86f72030ff0751f",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/3a88a518-367c-4202-95ef-eb7f223e5212_rw_600.gif?h=a1d80d2cb6e07474cf59f3c901ef00dc",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/68aa60c1-fa29-44d0-8437-6bf0ff9d52f4_rw_600.gif?h=630c1e945ef630a5546acf9f3fa56aa4",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/3980c868-ba2e-4dea-8f30-2d6a892dd326_rw_600.gif?h=0d6f8822414019eac92ac37162982c39",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/4881d04d-f1fc-466a-b1ff-4099f630d8b3_rw_600.gif?h=99187909f517d0ce3f2b158a2e8bfe1a",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/2254fc70-cfe6-441f-ac4e-e1cf1eb2ef43_rw_600.gif?h=c80f9ede30d7a72aad19bbf4cacf25c2",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/7dd7d7f1-cb70-4bdc-b2d3-216efb52f622_rw_600.gif?h=38af05385b29a480984d69cb4ab2c062",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/047016d3-7e9c-49e6-b341-c4b8ce45966c_rw_600.gif?h=c2f344bc2c74d5d15954435c93b0fa6a",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/ae5c5499-e8bf-434c-a815-95b2ba29fa18_rw_600.gif?h=25aa789d7c5705695a8f7fe910227ef6"
+            "assets/projects/perodua-content/05.mp4",
+            "assets/projects/perodua-content/06.mp4",
+            "assets/projects/perodua-content/07.mp4",
+            "assets/projects/perodua-content/08.mp4",
+            "assets/projects/perodua-content/09.mp4",
+            "assets/projects/perodua-content/10.mp4",
+            "assets/projects/perodua-content/11.mp4",
+            "assets/projects/perodua-content/12.mp4",
+            "assets/projects/perodua-content/13.mp4",
+            "assets/projects/perodua-content/14.mp4"
           ]
         },
         {
@@ -855,7 +855,7 @@
       "blocks": [
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/f129c849-b59d-4660-b1b1-c984747770c7_rw_1920.png?h=80acc6f2a44c22d535d67bce75bee487"
+          "image": "assets/projects/perodua-ativa-kol/01.png"
         },
         {
           "kind": "text",
@@ -905,7 +905,7 @@
         },
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/fe9dd543-1d69-4e2a-b824-faffeecf604c_rw_1920.gif?h=36725e73d9ad69deaa547246fe53c2a7"
+          "image": "assets/projects/perodua-ativa-kol/02.mp4"
         },
         {
           "kind": "text",
@@ -921,7 +921,7 @@
       "blocks": [
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/389e5496-a71c-45d1-8d01-6c237f815670_rw_1920.jpg?h=59dd72335c12fa982079a9c416fa5b0f"
+          "image": "assets/projects/proton-social-media/01.jpg"
         },
         {
           "kind": "video",
@@ -935,8 +935,8 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/93f2f497-5072-4ac3-9961-25c261e354fb_rw_1200.gif?h=fcb7a18fe44910e5ec62dbbd2ed272c8",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/5b739fbb-1686-4399-b8ae-bda50d1c824d_rw_1200.gif?h=40526ed9ab7dc0bb4995625c1235baeb"
+            "assets/projects/proton-social-media/02.mp4",
+            "assets/projects/proton-social-media/03.mp4"
           ]
         },
         {
@@ -946,8 +946,8 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/a1fbbb30-87a1-4833-aaf8-1877a1b1973e_rw_1200.gif?h=35a04e2b1aa4b0055108ee0d9cedc8a1",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/ff2c1537-f750-4cd9-ae93-b1e33310828f_rw_1200.gif?h=ed4c43a64eb65954306ca22802b25441"
+            "assets/projects/proton-social-media/04.mp4",
+            "assets/projects/proton-social-media/05.mp4"
           ]
         },
         {
@@ -957,8 +957,8 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/c6164968-d778-4d79-90e8-3df92fb8e6bb_rw_1200.gif?h=538e7529086bee9241aed371b11fb250",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/3588de9e-9b4e-4b4a-916f-522f0ca09fca_rw_1200.gif?h=22e3df3d22993d044b7f467db8d532a0"
+            "assets/projects/proton-social-media/06.mp4",
+            "assets/projects/proton-social-media/07.mp4"
           ]
         },
         {
@@ -968,8 +968,8 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/053b4905-2b34-44a1-9bab-e6f76bf33440_rw_1200.gif?h=afcc09141f9ebdffc3fb13e071b1bb40",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/844bc4bc-e635-4883-8659-c47e9c7107b7_rw_1200.gif?h=7ab0b4b16720ed11640b8ce63736c6ba"
+            "assets/projects/proton-social-media/08.mp4",
+            "assets/projects/proton-social-media/09.mp4"
           ]
         },
         {
@@ -984,8 +984,8 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/0d35af08-438a-481f-9f7a-c74e3a872abf_rw_1200.gif?h=016433db5b0dc1642e45a318ae12a375",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/3967a971-e8ec-4f50-904c-25d26b2bbf1b_rw_1200.gif?h=07185d930fc639333fd800aaedf23971"
+            "assets/projects/proton-social-media/10.mp4",
+            "assets/projects/proton-social-media/11.mp4"
           ]
         },
         {
@@ -995,8 +995,8 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/6122d15e-22b3-4cf0-878b-7083699a4803_rw_1200.gif?h=1243575e7fa0625e9723ca2341ef9c4d",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/f4822976-539a-4272-b607-009a172f02a5_rw_1200.gif?h=bf36e07e55bf0834cdfe24e5e8df553c"
+            "assets/projects/proton-social-media/12.mp4",
+            "assets/projects/proton-social-media/13.mp4"
           ]
         },
         {
@@ -1006,7 +1006,7 @@
         },
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/948a1103-0510-4b8a-9177-bd20bdca8345_rw_1920.jpg?h=161c0305a087bfefb5ac8da8cf515ae4"
+          "image": "assets/projects/proton-social-media/14.jpg"
         },
         {
           "kind": "text",
@@ -1014,7 +1014,7 @@
         },
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/6596f817-0c70-4b7b-bab8-940194c51f4c_rw_1920.jpg?h=da05be324351c4fd0e47d65686ba3159"
+          "image": "assets/projects/proton-social-media/15.jpg"
         },
         {
           "kind": "text",
@@ -1032,15 +1032,15 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/b579b631-7e6a-4a48-b91e-85b0a0f73545_rw_1200.gif?h=552a6761da3f43e53a1a1b7d1b534a09",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/de41208f-1f5d-4126-a282-f3bea7784e3e_rw_1200.gif?h=7837f5d56703de55892a60f3def66359"
+            "assets/projects/proton-social-media/16.mp4",
+            "assets/projects/proton-social-media/17.mp4"
           ]
         },
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/a3211a0f-6a3b-4495-a895-597e1cf58635_rw_1200.png?h=b70c5c613d473eada903542afaaec2f9",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/3ad41a15-001b-402d-883d-14cd6ac0d024_rw_1200.png?h=0772767a6f350ddbd548df3a5813bcfb"
+            "assets/projects/proton-social-media/18.png",
+            "assets/projects/proton-social-media/19.png"
           ]
         },
         {
@@ -1058,7 +1058,7 @@
         },
         {
           "kind": "image",
-          "image": "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/b3777312-1d03-4d7d-a875-61aa8a02bd65_rw_1200.jpg?h=e8884372254ce3590f2c02e0b98ad18f"
+          "image": "assets/projects/proton-social-media/20.jpg"
         },
         {
           "kind": "text",
@@ -1097,15 +1097,15 @@
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/b33b9091-78a9-434b-a2bd-c243cd159b44_rw_1200.gif?h=c51ec603e9cc4a5cef7bfe71fd02ded4",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/b4c71faf-5a81-451c-b2bb-88aa7c735383_rw_1200.gif?h=3a25e556b041a86d769f6b6819834195"
+            "assets/projects/proton-social-media/21.mp4",
+            "assets/projects/proton-social-media/22.mp4"
           ]
         },
         {
           "kind": "gallery",
           "images": [
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/2e9e3a8b-8e1e-434c-b18b-c4d6728edfbf_rw_1200.gif?h=4f0b6f0bd8ce55b8433cc878c7f477e9",
-            "https://cdn.myportfolio.com/646c9440-a624-4c67-82ee-8b3dd72a67d9/938f4c34-db94-4ab5-85ce-f24d54bb319e_rw_1200.gif?h=48685f560e6774df21fdb20292e8c7da"
+            "assets/projects/proton-social-media/23.mp4",
+            "assets/projects/proton-social-media/24.mp4"
           ]
         },
         {

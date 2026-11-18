@@ -66,7 +66,7 @@ content:
                 type: image
               - name: images
                 label: Images
-                description: For Image row blocks.
+                description: For Image row blocks. Short looping clips (.mp4) work here too, in place of GIFs.
                 type: image
                 list: true
               - name: video

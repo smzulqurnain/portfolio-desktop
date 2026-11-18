@@ -281,6 +281,15 @@ function openFolder(key) {
   });
 }
 
+// an image, or a silent looping clip for .mp4/.webm (converted GIFs)
+const media = (src, cls = '') => /\.(mp4|webm)(\?|$)/i.test(src)
+  ? `<video class="${cls} loop-clip" src="${src}" muted loop playsinline preload="metadata"></video>`
+  : `<img class="${cls}" src="${src}" alt="" loading="lazy">`;
+// play loop clips only while they're on screen
+const clipObserver = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) e.target.play().catch(() => {}); else e.target.pause();
+}), { threshold: 0.15 }) : null;
+
 function openProject(slug) {
   const p = PROJECTS.find(x => x.slug === slug); if (!p) return;
   const blocks = p.blocks.slice();
@@ -301,8 +310,8 @@ function openProject(slug) {
       const short = b.text.length <= 60 && b.text.split('\n').length <= 2;
       return short ? `<h4 class="post-h">${esc(b.text).replace(/\n/g, ' ')}</h4>` : `<div class="post-text">${paras(b.text)}</div>`;
     }
-    if (b.kind === 'image') return `<img class="post-img" src="${b.image}" alt="" loading="lazy">`;
-    if (b.kind === 'gallery') return `<div class="post-gallery">${b.images.map(g => `<img src="${g}" alt="" loading="lazy">`).join('')}</div>`;
+    if (b.kind === 'image') return media(b.image, 'post-img');
+    if (b.kind === 'gallery') return `<div class="post-gallery">${b.images.map(g => media(g)).join('')}</div>`;
     if (b.kind === 'video') return player(b.video, p.title, b.shape);
     return '';
   }).join('');
@@ -311,6 +320,7 @@ function openProject(slug) {
     body: `<article class="proj">${hero}<div class="proj-info"><h3>${esc(p.title)}${p.client ? `<small>${esc(p.client)}</small>` : ''}</h3><span class="tag" style="--c:${FOLDERS[p.cat].soft}">${FOLDERS[p.cat].name}</span></div>
       <div class="post">${body}</div></article>`,
   });
+  w.querySelectorAll('video.loop-clip').forEach(v => clipObserver ? clipObserver.observe(v) : (v.autoplay = true));
   return w;
 }
 

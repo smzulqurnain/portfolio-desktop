@@ -155,8 +155,10 @@ button.wg:hover{transform:translateY(-3px)}
 .post-text{max-width:62ch;color:#2b2b2b}
 .post-text p{margin:0 0 10px}
 .post-img{width:100%;border:var(--stroke) solid var(--ink);border-radius:10px}
-.post-gallery{display:flex;flex-wrap:wrap;gap:8px}
-.post-gallery img{height:210px;flex:1 1 auto;min-width:120px;max-width:100%;object-fit:cover;border:var(--stroke) solid var(--ink);border-radius:10px;background:var(--chrome)}
+.post-gallery{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+
+video.post-img{display:block}
+.post-gallery img,.post-gallery video{height:210px;width:auto;flex:0 0 auto;max-width:100%;object-fit:contain;border:var(--stroke) solid var(--ink);border-radius:10px;background:var(--chrome)}
 .player{position:relative;width:100%;background:var(--ink);border:var(--stroke) solid var(--ink);border-radius:10px;overflow:hidden;margin:0 auto}
 .player.wide{aspect-ratio:16/9}
 .player.square{aspect-ratio:1;max-width:460px}
@@ -173,7 +175,7 @@ button.wg:hover{transform:translateY(-3px)}
 .video-row.n1 .player.square{max-width:460px}
 /* showreel window: player sits edge to edge */
 .win-body > .player{border:0;border-bottom:var(--stroke) solid var(--ink);border-radius:0;max-width:none}
-@media (max-width:720px){.post{padding:0 14px 20px}.post-gallery img{height:150px}}
+@media (max-width:720px){.post{padding:0 14px 20px}.post-gallery img,.post-gallery video{height:150px}}
 
 /* folder */
 .files{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:14px 10px;padding:16px}
