@@ -77,3 +77,5 @@ content:
       - { name: behance, label: Behance, type: string }
       - { name: linkedin, label: LinkedIn, type: string }
       - { name: vimeo, label: Vimeo, type: string }
+      - { name: lastfm, label: Last.fm, type: string }
+      - { name: deviantart, label: DeviantArt, type: string }

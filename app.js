@@ -284,7 +284,7 @@ function clientList() {
   return rows.join('\n');
 }
 function socials() {
-  return [['Behance', S.behance], ['LinkedIn', S.linkedin], ['Vimeo', S.vimeo]]
+  return [['Behance', S.behance], ['LinkedIn', S.linkedin], ['Vimeo', S.vimeo], ['Last.fm', S.lastfm], ['DeviantArt', S.deviantart]]
     .filter(([, u]) => safeUrl(u)).map(([n, u]) => `<a class="btn ghost" href="${safeUrl(u)}" target="_blank" rel="noopener">${n}</a>`).join('');
 }
 
