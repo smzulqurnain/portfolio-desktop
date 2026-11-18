@@ -88,6 +88,7 @@ button.wg:hover{transform:translateY(-3px)}
   box-shadow:var(--ledge),var(--shadow);display:flex;flex-direction:column;min-width:240px;max-width:calc(100vw - 24px);max-height:calc(100vh - 150px);
   animation:pop .32s cubic-bezier(.2,1.4,.4,1) both}
 .win.closing{animation:shut .18s ease-in both}
+.win.max{transform:none;left:12px!important;top:10px!important;width:calc(100vw - 24px)!important;height:calc(100vh - 160px)!important;max-height:none}
 @keyframes pop{from{opacity:0;transform:scale(.86) translateY(14px)}}
 @keyframes shut{to{opacity:0;transform:scale(.9) translateY(10px)}}
 .win-bar{display:flex;align-items:center;gap:10px;height:30px;padding:0 10px;border-bottom:var(--stroke) solid var(--ink);cursor:grab;user-select:none;touch-action:none;flex:none}
@@ -96,6 +97,7 @@ button.wg:hover{transform:translateY(-3px)}
 .dot{width:11px;height:11px;border:1.8px solid var(--ink);border-radius:50%;background:var(--paper)}
 .win.front .dot.close:hover{background:var(--red)}
 .win.front .dot.min:hover{background:var(--yellow)}
+.dot.max{cursor:default}
 .win-title{flex:1;margin:0;font-size:12px;font-weight:600;text-align:center;padding-right:43px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .win-body{overflow:auto;flex:1;min-height:0}
 .win-foot{height:9px;border-top:var(--stroke) solid var(--ink);flex:none;cursor:grab;touch-action:none}
