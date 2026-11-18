@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SM Zulqurnain — Motion Desktop</title>
+<meta name="description" content="Portfolio of SM Zulqurnain, motion designer. Social, TVC and launch work for Perodua, MG, Proton, KFC, Pantene and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- wobbly hand-drawn grid -->
+<svg class="grid-bg" aria-hidden="true">
+  <defs>
+    <filter id="wobble"><feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="22"/></filter>
+    <pattern id="cells" width="118" height="92" patternUnits="userSpaceOnUse">
+      <path d="M118 0V92M0 92H118" fill="none" stroke="var(--grid-line)" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect x="-40" y="-40" width="calc(100% + 80px)" height="calc(100% + 80px)" fill="url(#cells)" filter="url(#wobble)"/>
+</svg>
+
+<!-- menu bar -->
+<header class="menubar">
+  <div class="mb-left">
+    <button class="mb-logo" data-open="about" aria-label="About"><span></span><span></span></button>
+    <nav>
+      <button data-open="work">Featured</button>
+      <button data-folder="social">Social</button>
+      <button data-folder="tvc">TVC</button>
+      <button data-folder="events">Events</button>
+      <button data-folder="hobby">Hobby</button>
+    </nav>
+  </div>
+  <div class="mb-center">Moving pictures, made in Malaysia</div>
+  <div class="mb-right"><span class="battery"><i></i></span><span id="clock">—</span></div>
+</header>
+
+<!-- desktop icons -->
+<section class="icons" aria-label="Desktop">
+  <button class="icon" data-folder="social"><span class="ico folder c1"></span><span>Social</span></button>
+  <button class="icon" data-folder="tvc"><span class="ico folder c2"></span><span>TVC</span></button>
+  <button class="icon" data-folder="events"><span class="ico folder c3"></span><span>Events</span></button>
+  <button class="icon" data-folder="hobby"><span class="ico folder c4"></span><span>Hobby</span></button>
+  <button class="icon" data-open="reel"><span class="ico file-vid"></span><span>showreel.mp4</span></button>
+  <button class="icon" data-open="about"><span class="ico file-txt"></span><span>about.txt</span></button>
+</section>
+
+<main id="desk"></main>
+
+<!-- dock -->
+<footer class="dock-wrap">
+  <div class="dock">
+    <button data-open="work" title="Work"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="var(--yellow)"/><path d="M5 20h30M20 5c-6 7-6 23 0 30M20 5c6 7 6 23 0 30" fill="none" stroke="var(--ink)" stroke-width="2"/><circle cx="20" cy="20" r="15" fill="none" stroke="var(--ink)" stroke-width="2.4"/></svg></button>
+    <button data-open="reel" title="Showreel"><svg viewBox="0 0 40 40"><rect x="5" y="8" width="30" height="24" rx="5" fill="var(--red)" stroke="var(--ink)" stroke-width="2.4"/><path d="M17 14l9 6-9 6z" fill="#fff" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/></svg></button>
+    <button data-open="terminal" title="Terminal"><svg viewBox="0 0 40 40"><rect x="5" y="7" width="30" height="26" rx="4" fill="var(--ink)"/><path d="M11 15l5 5-5 5M19 26h9" fill="none" stroke="var(--green)" stroke-width="2.6" stroke-linecap="round"/></svg></button>
+    <button data-open="finder" title="Folders"><svg viewBox="0 0 40 40"><path d="M5 12a3 3 0 013-3h8l3 4h13a3 3 0 013 3v14a3 3 0 01-3 3H8a3 3 0 01-3-3z" fill="var(--orange)" stroke="var(--ink)" stroke-width="2.4" stroke-linejoin="round"/><path d="M5 17h30" stroke="var(--ink)" stroke-width="2"/></svg></button>
+    <button data-open="contact" title="Contact"><svg viewBox="0 0 40 40"><rect x="5" y="9" width="30" height="22" rx="3" fill="var(--blue-soft)" stroke="var(--ink)" stroke-width="2.4"/><path d="M6 11l14 11 14-11" fill="none" stroke="var(--ink)" stroke-width="2.4" stroke-linejoin="round"/></svg></button>
+    <button data-open="about" title="About"><svg viewBox="0 0 40 40"><rect x="8" y="5" width="24" height="30" rx="3" fill="#fff" stroke="var(--ink)" stroke-width="2.4"/><path d="M13 13h14M13 19h14M13 25h9" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/><path d="M26 30l7-12 3 2-7 12-4 1z" fill="var(--yellow)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/></svg></button>
+  </div>
+</footer>
+
+<template id="win-tpl">
+  <article class="win" role="dialog">
+    <div class="win-bar">
+      <div class="dots"><button class="dot close" aria-label="Close"></button><button class="dot min" aria-label="Minimise"></button><button class="dot max" aria-label="Maximise"></button></div>
+      <h2 class="win-title"></h2>
+    </div>
+    <div class="win-body"></div>
+    <div class="win-foot"></div>
+  </article>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>
