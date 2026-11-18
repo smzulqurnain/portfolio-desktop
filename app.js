@@ -50,13 +50,6 @@ const AVATAR = `<svg viewBox="0 0 92 92" fill="none" stroke="#141414" stroke-wid
   <path d="M46 48v6h-3M41 58c3 2 7 2 10 0"/><path d="M33 46h12M47 46h12" stroke-width="1.6"/><rect x="33" y="42" width="11" height="8" rx="4"/><rect x="48" y="42" width="11" height="8" rx="4"/></svg>`;
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-// tint folder icons
-document.querySelectorAll('.folder').forEach((el, i) => {
-  const key = el.closest('[data-folder]')?.dataset.folder;
-  const col = FOLDERS[key]?.color || 'f7b267';
-  el.style.backgroundImage = getComputedStyle(el).backgroundImage.replace('FILL', col);
-});
-
 // ---------- window manager ----------
 const desk = document.getElementById('desk');
 const tpl = document.getElementById('win-tpl');
@@ -186,7 +179,7 @@ const APPS = {
       ['whoami', `${(S.name || '').toLowerCase()} — ${(S.role || 'motion designer').split('·')[0].trim().toLowerCase()}`],
       ['ls clients/', clientList()],
       ['cat services.txt', S.services || ''],
-      ['open showreel.mp4', '→ click showreel.mp4 on the desktop, or hit ▶ in the dock'],
+      ['open showreel.mp4', '→ hit ▶ in the dock'],
     ];
     let i = 0;
     const typeLine = () => {
