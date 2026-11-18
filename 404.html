@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SM Zulqurnain — Motion Desktop</title>
+<meta name="robots" content="noindex">
+<script>
+// Old Adobe Portfolio links (smzulqurnain.work/<page>) open the matching window on the desktop.
+(function () {
+  var page = location.pathname.replace(/^\/+|\/+$/g, '').split('/').pop().toLowerCase();
+  var projects = {
+    'perodua-ev-launch': 'perodua-ev-launch',
+    'morris-garage-mg-cyberster-launch': 'mg-cyberster-launch',
+    'morris-garage-mg-ev4-launch': 'mg-ev4-launch',
+    'kfc-the-one-box-2020': 'kfc-the-one-box',
+    'rejoice-poof-rich-soft-smooth-tvc': 'rejoice-poof-tvc',
+    'pantene-id-sansa-multivitamin': 'pantene-id-sansa',
+    'propertyguru-datasense-2024': 'propertyguru-datasense',
+    'mitsubishi-triton-ai-test': 'mitsubishi-triton-ai-test',
+    'ai-projects': 'ai-projects',
+    'yeos-social-media-2023-2025': 'yeo-s-social-media',
+    'maggi-cukup-rasa-2019': 'maggi-cukup-rasa',
+    'mitsubishi-triton-ride-with-the-stars': 'triton-ride-with-the-stars',
+    'simplysiti-rose-luxe': 'simplysiti-rose-luxe',
+    'perodua-content-2023-2025': 'perodua-content',
+    'perodua-ativa-kol-campaign-2024': 'perodua-ativa-kol',
+    'proton-social-media-motion-graphics': 'proton-social-media'
+  };
+  var folders = { 'social-media': 'social', 'tvc-motion': 'tvc', 'events': 'events', 'hobby': 'hobby' };
+  var windows = { 'featured': 'work', 'contact': 'contact', 'about': 'about' };
+  var q = '';
+  if (projects[page]) q = '?p=' + projects[page];
+  else if (folders[page]) q = '?f=' + folders[page];
+  else if (windows[page]) q = '?w=' + windows[page];
+  else if (page) q = '?p=' + encodeURIComponent(page); // a project slug typed directly
+  location.replace('/' + q);
+})();
+</script>
+</head>
+<body><p><a href="/">Open the desktop</a></p></body>
+</html>

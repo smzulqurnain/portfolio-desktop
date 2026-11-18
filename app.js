@@ -398,6 +398,13 @@ function initWidget() {
 loadContent().then(() => {
   initWidget();
   // desktop starts clear: the terminal opens from the menu-bar logo or the dock
+  // deep links (?p=project, ?f=folder, ?w=window), used by 404.html for old portfolio URLs
+  const qs = new URLSearchParams(location.search);
+  const p = qs.get('p'), f = qs.get('f'), w = qs.get('w');
+  if (p && PROJECTS.some(x => x.slug === p)) openProject(p);
+  else if (f && FOLDERS[f]) openFolder(f);
+  else if (w && APPS[w]) APPS[w]();
+  if (p || f || w) history.replaceState(null, '', location.pathname);
 }).catch(err => {
   console.error(err);
   openWin('error', { title: 'Error', w: 380, body: `<div class="note"><h3>Couldn’t load content.</h3><p>${esc(err.message)}</p><p>If you just edited content in Pages CMS, check the JSON is valid, or reload in a minute.</p></div>` });
