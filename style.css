@@ -67,7 +67,7 @@ img{display:block;max-width:100%}
   box-shadow:var(--ledge),var(--shadow);display:flex;flex-direction:column;min-width:240px;max-width:calc(100vw - 24px);max-height:calc(100vh - 150px);
   animation:pop .32s cubic-bezier(.2,1.4,.4,1) both}
 .win.closing{animation:shut .18s ease-in both}
-.win.max{left:12px!important;top:10px!important;width:calc(100vw - 24px)!important;height:calc(100vh - 160px)!important;max-height:none}
+.win.max{transform:none;left:12px!important;top:10px!important;width:calc(100vw - 24px)!important;height:calc(100vh - 160px)!important;max-height:none}
 @keyframes pop{from{opacity:0;transform:scale(.86) translateY(14px)}}
 @keyframes shut{to{opacity:0;transform:scale(.9) translateY(10px)}}
 .win-bar{display:flex;align-items:center;gap:10px;height:30px;padding:0 10px;border-bottom:var(--stroke) solid var(--ink);cursor:grab;user-select:none;touch-action:none;flex:none}
@@ -79,7 +79,9 @@ img{display:block;max-width:100%}
 .win.front .dot.max:hover{background:var(--green)}
 .win-title{flex:1;margin:0;font-size:12px;font-weight:600;text-align:center;padding-right:43px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .win-body{overflow:auto;flex:1;min-height:0}
-.win-foot{height:9px;border-top:var(--stroke) solid var(--ink);flex:none}
+.win-foot{height:9px;border-top:var(--stroke) solid var(--ink);flex:none;cursor:grab;touch-action:none}
+.win.dragging{transition:none;box-shadow:var(--ledge),0 28px 50px -18px rgba(0,0,0,.5);transform:rotate(-.6deg)}
+.win.dragging,.win.dragging *{cursor:grabbing!important;user-select:none}
 .win:not(.front) .win-bar{color:var(--muted)}
 
 /* browser */
@@ -179,8 +181,7 @@ img{display:block;max-width:100%}
 @media (max-width:720px){
   .mb-center,.mb-left nav{display:none}
   .icons{grid-template-columns:repeat(3,1fr);left:16px;right:16px;top:52px}
-  .win{left:12px!important;right:12px;width:auto!important;top:8px!important;max-height:calc(100dvh - 140px)}
-  .win-bar{cursor:default}
+  .win{max-height:calc(100dvh - 140px)}
   .dock{gap:8px;padding:10px 26px 16px}
   .dock button{width:38px;height:38px}
   .results{grid-template-columns:repeat(2,1fr);gap:10px;padding:6px 12px 16px}

@@ -76,10 +76,11 @@ function openWin(id, { title, body, w = 560, h, x, y, foot }) {
   const width = Math.min(w, vw - 24);
   el.style.width = width + 'px';
   if (h) el.style.height = Math.min(h, vh - 130) + 'px';
-  const cx = x ?? Math.max(12, (vw - width) / 2 + (cascade % 5) * 26 - 52);
-  const cy = y ?? 30 + (cascade % 5) * 24;
+  const narrow = mobile();
+  const cx = narrow ? 12 : x ?? Math.max(12, (vw - width) / 2 + (cascade % 5) * 26 - 52);
+  const cy = narrow ? 8 + (cascade % 4) * 18 : y ?? 30 + (cascade % 5) * 24;
   cascade++;
-  el.style.left = Math.min(cx, vw - width - 12) + 'px';
+  el.style.left = Math.max(12, Math.min(cx, vw - width - 12)) + 'px';
   el.style.top = cy + 'px';
   el.querySelector('.close').onclick = e => { e.stopPropagation(); closeWin(id); };
   el.querySelector('.min').onclick = e => { e.stopPropagation(); closeWin(id); };
@@ -91,19 +92,42 @@ function openWin(id, { title, body, w = 560, h, x, y, foot }) {
 }
 
 function drag(el) {
-  const bar = el.querySelector('.win-bar');
-  bar.addEventListener('pointerdown', e => {
-    if (e.target.closest('.dot') || mobile() || el.classList.contains('max')) return;
-    const sx = e.clientX - el.offsetLeft, sy = e.clientY - el.offsetTop;
-    bar.setPointerCapture(e.pointerId);
-    const move = ev => {
-      el.style.left = Math.max(-el.offsetWidth + 80, Math.min(innerWidth - 80, ev.clientX - sx)) + 'px';
-      el.style.top = Math.max(0, Math.min(innerHeight - 90, ev.clientY - sy)) + 'px';
-    };
-    const up = () => { bar.removeEventListener('pointermove', move); bar.removeEventListener('pointerup', up); };
-    bar.addEventListener('pointermove', move); bar.addEventListener('pointerup', up);
-  });
-  bar.addEventListener('dblclick', e => { if (!e.target.closest('.dot')) el.classList.toggle('max'); });
+  // grab by the title bar or the bottom ledge, at any screen size
+  for (const handle of el.querySelectorAll('.win-bar, .win-foot')) {
+    handle.addEventListener('pointerdown', e => {
+      if (e.button !== 0 || e.target.closest('.dot')) return;
+      e.preventDefault();
+      let r = el.getBoundingClientRect(), dr = desk.getBoundingClientRect();
+      if (el.classList.contains('max')) {
+        // pull a maximised window off its max size, keeping it under the pointer
+        el.classList.remove('max');
+        const w = el.offsetWidth;
+        el.style.left = (e.clientX - dr.left - w * ((e.clientX - r.left) / r.width)) + 'px';
+        el.style.top = (e.clientY - dr.top - 15) + 'px';
+        r = el.getBoundingClientRect();
+      }
+      const ox = e.clientX - r.left, oy = e.clientY - r.top;
+      handle.setPointerCapture(e.pointerId);
+      el.classList.add('dragging');
+      const move = ev => {
+        const w = el.offsetWidth, h = el.offsetHeight;
+        const x = ev.clientX - dr.left - ox, y = ev.clientY - dr.top - oy;
+        // keep at least 80px of the window, and the whole title bar, on screen
+        el.style.left = Math.max(80 - w, Math.min(dr.width - 80, x)) + 'px';
+        el.style.top = Math.max(0, Math.min(dr.height - 40, y)) + 'px';
+      };
+      const up = () => {
+        el.classList.remove('dragging');
+        handle.removeEventListener('pointermove', move);
+        handle.removeEventListener('pointerup', up);
+        handle.removeEventListener('pointercancel', up);
+      };
+      handle.addEventListener('pointermove', move);
+      handle.addEventListener('pointerup', up);
+      handle.addEventListener('pointercancel', up);
+    });
+  }
+  el.querySelector('.win-bar').addEventListener('dblclick', e => { if (!e.target.closest('.dot')) el.classList.toggle('max'); });
 }
 
 // ---------- apps ----------
