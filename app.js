@@ -89,6 +89,8 @@ function closeWin(id) {
   syncDock();
 }
 
+const WIN_W = 600, WIN_H = 560;
+
 function openWin(id, { title, body, w = 560, h, x, y, foot }) {
   if (wins.has(id)) { focusWin(wins.get(id)); return wins.get(id); }
   const el = tpl.content.firstElementChild.cloneNode(true);
@@ -97,9 +99,10 @@ function openWin(id, { title, body, w = 560, h, x, y, foot }) {
   const b = el.querySelector('.win-body');
   typeof body === 'string' ? (b.innerHTML = body) : b.append(body);
   const vw = innerWidth, vh = innerHeight - 34;
-  const width = Math.min(w, vw - 24);
+  // every window opens at the same size (content scrolls inside)
+  const width = Math.min(WIN_W, vw - 24);
   el.style.width = width + 'px';
-  if (h) el.style.height = Math.min(h, vh - 130) + 'px';
+  el.style.height = Math.min(WIN_H, vh - 130) + 'px';
   const narrow = mobile();
   const cx = narrow ? 12 : x ?? Math.max(12, (vw - width) / 2 + (cascade % 5) * 26 - 52);
   const cy = narrow ? 8 + (cascade % 4) * 18 : y ?? 30 + (cascade % 5) * 24;
@@ -108,7 +111,7 @@ function openWin(id, { title, body, w = 560, h, x, y, foot }) {
   el.style.top = cy + 'px';
   el.querySelector('.close').onclick = e => { e.stopPropagation(); closeWin(id); };
   el.querySelector('.min').onclick = e => { e.stopPropagation(); closeWin(id); };
-  el.querySelector('.max').onclick = e => { e.stopPropagation(); el.classList.toggle('max'); };
+  el.querySelector('.max').onclick = e => e.stopPropagation();
   el.addEventListener('pointerdown', () => focusWin(el));
   drag(el);
   desk.append(el); wins.set(id, el); focusWin(el);
@@ -122,14 +125,6 @@ function drag(el) {
       if (e.button !== 0 || e.target.closest('.dot')) return;
       e.preventDefault();
       let r = el.getBoundingClientRect(), dr = desk.getBoundingClientRect();
-      if (el.classList.contains('max')) {
-        // pull a maximised window off its max size, keeping it under the pointer
-        el.classList.remove('max');
-        const w = el.offsetWidth;
-        el.style.left = (e.clientX - dr.left - w * ((e.clientX - r.left) / r.width)) + 'px';
-        el.style.top = (e.clientY - dr.top - 15) + 'px';
-        r = el.getBoundingClientRect();
-      }
       const ox = e.clientX - r.left, oy = e.clientY - r.top;
       handle.setPointerCapture(e.pointerId);
       el.classList.add('dragging');
@@ -151,7 +146,6 @@ function drag(el) {
       handle.addEventListener('pointercancel', up);
     });
   }
-  el.querySelector('.win-bar').addEventListener('dblclick', e => { if (!e.target.closest('.dot')) el.classList.toggle('max'); });
 }
 
 // ---------- apps ----------
@@ -162,7 +156,7 @@ const APPS = {
     const name = S.logo_word || (S.name || 'Zulqurnain').split(' ').pop();
     const logo = [...name].map((c, i) => `<span style="color:${LOGO_COLORS[i % LOGO_COLORS.length]}">${esc(c)}</span>`).join('');
     const el = openWin('work', {
-      title: 'Work — smzulqurnain.work', w: 760, h: 640, x: Math.max(12, innerWidth - 790), y: 24,
+      title: 'Work — smzulqurnain.work',
       body: `<div class="addr"><span>←&nbsp;→</span><b>smzulqurnain.work/featured</b></div>
         <div class="engine"><h1 class="logo" aria-label="${name}">${logo}</h1>
           <label class="search"><input type="search" placeholder="Search work… try “Perodua” or “TVC”" aria-label="Search work"><kbd>⌘K</kbd></label>
@@ -186,7 +180,7 @@ const APPS = {
 
   terminal() {
     const el = openWin('terminal', {
-      title: 'zsh — 80×24', w: 380, x: 28, y: 24,
+      title: 'zsh — 80×24', x: 28, y: 24,
       body: `<div class="term" aria-live="polite"></div>`,
     });
     const t = el.querySelector('.term');
@@ -224,7 +218,7 @@ const APPS = {
     const media = (vid && player(vid, 'Showreel')) ||
       `<div class="reel">${poster ? `<img src="${poster}" alt="">` : ''}${link ? `<a href="${link}" target="_blank" rel="noopener" aria-label="Watch the showreel"></a>` : ''}</div>`;
     return openWin('reel', {
-      title: 'showreel.mp4', w: 760,
+      title: 'showreel.mp4',
       body: `${media}<div class="proj-info"><h3>Showreel</h3>${link && !vid ? `<a class="btn" href="${link}" target="_blank" rel="noopener">Watch full screen ↗</a>` : ''}</div>`,
     });
   },
@@ -232,7 +226,7 @@ const APPS = {
   about() {
     const brands = new Set(PROJECTS.filter(p => p.client !== 'Personal').map(p => p.client)).size;
     return openWin('about', {
-      title: 'about.txt', w: 440, x: 200, y: 40,
+      title: 'about.txt',
       body: `<div class="profile">
           <div class="avatar">${avatarHtml()}</div>
           <h3>${esc(S.name)}</h3><p>${esc(S.role)}</p>
@@ -248,7 +242,7 @@ const APPS = {
   contact() {
     const email = /^[^\s@<>"]+@[^\s@<>"]+\.[a-z]{2,}$/i.test(S.email || '') ? S.email : '';
     return openWin('contact', {
-      title: 'New Message', w: 440,
+      title: 'New Message',
       body: `<div class="note"><h3>Let’s make something move.</h3>
         <p class="mail-label">Get in touch</p>
         ${email ? `<a class="mail" href="mailto:${email}">${esc(email)}</a>` : ''}
@@ -259,7 +253,7 @@ const APPS = {
 
   finder() {
     const el = openWin('finder', {
-      title: 'Folders', w: 420,
+      title: 'Folders',
       body: `<div class="finder">${Object.entries(FOLDERS).map(([k, f]) => `<button data-folder="${k}" title="${esc(f.blurb)}"><span class="ico folder" style="background-image:${folderSvg(f.color).replace(/"/g, '&quot;')}"></span><span class="finder-name">${f.name}</span></button>`).join('')}</div>`,
     });
     return el;
@@ -277,7 +271,7 @@ function openFolder(key) {
     ? `<div class="files">${items.map(p => `<button class="file" data-proj="${p.slug}"><img src="${p.img}" alt="" loading="lazy">${esc(p.title)}</button>`).join('')}</div>`
     : `<div class="note"><p>This folder lives on the main site. It has event openers, stage visuals and music-video work.</p></div>`;
   openWin('folder:' + key, {
-    title: `${f.name} — ${items.length || '…'} items`, w: 520,
+    title: `${f.name} — ${items.length || '…'} items`,
     body: `${files}<div class="folder-note"><span>Showing featured picks</span><a class="btn ghost" href="${SITE}/${f.page}" target="_blank" rel="noopener">All ${f.name} work ↗</a></div>`,
   });
 }
@@ -317,7 +311,7 @@ function openProject(slug) {
     return '';
   }).join('');
   const w = openWin('proj:' + slug, {
-    title: p.title, w: 760, h: 760,
+    title: p.title,
     body: `<article class="proj">${hero}<div class="proj-info"><h3>${esc(p.title)}${p.client ? `<small>${esc(p.client)}</small>` : ''}</h3><span class="tag" style="--c:${FOLDERS[p.cat].soft}">${FOLDERS[p.cat].name}</span></div>
       <div class="post">${body}</div></article>`,
   });
@@ -407,5 +401,5 @@ loadContent().then(() => {
   if (p || f || w) history.replaceState(null, '', location.pathname);
 }).catch(err => {
   console.error(err);
-  openWin('error', { title: 'Error', w: 380, body: `<div class="note"><h3>Couldn’t load content.</h3><p>${esc(err.message)}</p><p>If you just edited content in Pages CMS, check the JSON is valid, or reload in a minute.</p></div>` });
+  openWin('error', { title: 'Error', body: `<div class="note"><h3>Couldn’t load content.</h3><p>${esc(err.message)}</p><p>If you just edited content in Pages CMS, check the JSON is valid, or reload in a minute.</p></div>` });
 });
