@@ -236,13 +236,11 @@ const APPS = {
       body: `<div class="profile">
           <div class="avatar">${avatarHtml()}</div>
           <h3>${esc(S.name)}</h3><p>${esc(S.role)}</p>
-          ${S.contact_link ? `<a class="btn" href="${safeUrl(S.contact_link)}" target="_blank" rel="noopener">Send message →</a>` : ''}
           <div class="stats"><div><b>${PROJECTS.length}</b><span>Featured</span></div><div><b>${brands}</b><span>Brands</span></div><div><b>${Object.keys(FOLDERS).length}</b><span>Categories</span></div></div>
         </div>
         <div class="note">
           <div class="tags">${Object.values(FOLDERS).map(f => `<span class="tag" style="--c:${f.soft}">${f.name}</span>`).join('')}<span class="tag" style="--c:#d6f2ec">AI</span></div>
           ${paras(S.bio || '')}
-          <div class="links">${socials()}</div>
           <p class="credit"><span class="copy">© 2026 SM Zulqurnain.</span>UI based on the <a href="https://contrauikit.com/" target="_blank" rel="noopener">Contra Wireframe Kit</a> by <a href="https://vijayverma.co/" target="_blank" rel="noopener">Vijay Verma</a>.</p></div>`,
     });
   },
@@ -253,7 +251,9 @@ const APPS = {
       title: 'New Message', w: 440,
       body: `<div class="note"><h3>Let’s make something move.</h3>
         <p class="mail-label">Get in touch</p>
-        ${email ? `<a class="mail" href="mailto:${email}">${esc(email)}</a>` : ''}</div>`,
+        ${email ? `<a class="mail" href="mailto:${email}">${esc(email)}</a>` : ''}
+        <p class="mail-label">Find me on</p>
+        <div class="links">${socials()}</div></div>`,
     });
   },
 
