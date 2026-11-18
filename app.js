@@ -1,24 +1,40 @@
-// ---------- data ----------
+// ---------- data (edited in Pages CMS: content/projects.json, content/site.json) ----------
 const SITE = 'https://smzulqurnain.work';
-const P = (title, slug, img, cat, client) => ({ title, slug, img: `assets/thumbs/${img}.jpg`, cat, client });
-const PROJECTS = [
-  P('Perodua EV Launch', 'perodua-ev-launch', 'perodua-ev-launch', 'social', 'Perodua'),
-  P('MG Cyberster Launch', 'morris-garage-mg-cyberster-launch', 'mg-cyberster-launch', 'social', 'Morris Garages'),
-  P('MG EV4 Launch', 'morris-garage-mg-ev4-launch', 'mg-ev4-launch', 'social', 'Morris Garages'),
-  P('KFC The One Box', 'kfc-the-one-box-2020', 'kfc-the-one-box', 'tvc', 'KFC'),
-  P('Rejoice Poof TVC', 'rejoice-poof-rich-soft-smooth-tvc', 'rejoice-poof-tvc', 'tvc', 'Rejoice'),
-  P('Pantene ID Sansa', 'pantene-id-sansa-multivitamin', 'pantene-id-sansa', 'tvc', 'Pantene'),
-  P('PropertyGuru DataSense', 'propertyguru-datasense-2024', 'propertyguru-datasense', 'social', 'PropertyGuru'),
-  P('Mitsubishi Triton AI Test', 'mitsubishi-triton-ai-test', 'mitsubishi-triton-ai-test', 'hobby', 'Personal'),
-  P('AI Projects', 'ai-projects', 'ai-projects', 'hobby', 'Personal'),
-  P("Yeo's Social Media", 'yeos-social-media-2023-2025', 'yeo-s-social-media', 'social', "Yeo's"),
-  P('Maggi Cukup Rasa', 'maggi-cukup-rasa-2019', 'maggi-cukup-rasa', 'tvc', 'Maggi'),
-  P('Triton: Ride With The Stars', 'mitsubishi-triton-ride-with-the-stars', 'triton-ride-with-the-stars', 'social', 'Mitsubishi'),
-  P('SimplySiti Rose Luxe', 'simplysiti-rose-luxe', 'simplysiti-rose-luxe', 'tvc', 'SimplySiti'),
-  P('Perodua Content', 'perodua-content-2023-2025', 'perodua-content', 'social', 'Perodua'),
-  P('Perodua Ativa KOL', 'perodua-ativa-kol-campaign-2024', 'perodua-ativa-kol', 'social', 'Perodua'),
-  P('Proton Social Media', 'proton-social-media-motion-graphics', 'proton-social-media', 'social', 'Proton'),
-];
+let PROJECTS = [], S = {};
+const slugify = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+// only allow web links and site-relative paths from the content files
+const safeUrl = u => { u = String(u || '').trim(); return /^(https?:\/\/|[\w./-]+$)/i.test(u) && !/^javascript:/i.test(u) ? u : ''; };
+async function loadContent() {
+  const get = p => fetch(p, { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error(p + ' ' + r.status); return r.json(); });
+  const [proj, site] = await Promise.all([get('content/projects.json'), get('content/site.json')]);
+  S = site || {};
+  const seen = new Set();
+  PROJECTS = (proj.projects || []).filter(p => p && p.title).map(p => {
+    let id = slugify(p.title) || 'post'; while (seen.has(id)) id += '-2'; seen.add(id);
+    return {
+      slug: id, title: String(p.title), client: String(p.client || ''),
+      cat: FOLDERS[p.category] ? p.category : 'social',
+      img: safeUrl(p.thumbnail), link: safeUrl(p.link), video: safeUrl(p.video),
+      description: String(p.description || ''), gallery: (p.gallery || []).map(safeUrl).filter(Boolean),
+    };
+  });
+}
+
+// turn a Vimeo or YouTube page link into an embeddable player URL
+function embedUrl(u) {
+  let m;
+  if ((m = u.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/(\w+))?/))) return `https://player.vimeo.com/video/${m[1]}${m[2] ? '?h=' + m[2] : ''}`;
+  if ((m = u.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{11})/))) return `https://www.youtube-nocookie.com/embed/${m[1]}`;
+  return '';
+}
+const player = (u, title) => {
+  const src = embedUrl(u);
+  if (src) return `<div class="player"><iframe src="${src}" title="${esc(title)}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
+  if (/\.(mp4|webm|mov)(\?|$)/i.test(u)) return `<div class="player"><video src="${u}" controls playsinline preload="metadata"></video></div>`;
+  return '';
+};
+const paras = t => esc(t).split(/\n{2,}/).map(x => `<p>${x.replace(/\n/g, '<br>')}</p>`).join('');
+
 const FOLDERS = {
   social: { name: 'Social', page: 'social-media', color: 'f08fb6', soft: 'var(--pink-soft)', blurb: 'Launches, KOL and always-on content' },
   tvc:    { name: 'TVC', page: 'tvc-motion', color: 'cdebf7', soft: 'var(--blue-soft)', blurb: 'Broadcast spots and DOOH' },
@@ -32,7 +48,7 @@ const AVATAR = `<svg viewBox="0 0 92 92" fill="none" stroke="#141414" stroke-wid
   <path d="M29 40c0-14 8-22 18-22s17 7 17 20c-6-2-12-7-14-12-4 8-13 12-21 14z" fill="#141414"/>
   <circle cx="39.5" cy="46" r="1.6" fill="#141414"/><circle cx="52.5" cy="46" r="1.6" fill="#141414"/>
   <path d="M46 48v6h-3M41 58c3 2 7 2 10 0"/><path d="M33 46h12M47 46h12" stroke-width="1.6"/><rect x="33" y="42" width="11" height="8" rx="4"/><rect x="48" y="42" width="11" height="8" rx="4"/></svg>`;
-const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 // tint folder icons
 document.querySelectorAll('.folder').forEach((el, i) => {
@@ -135,8 +151,8 @@ const card = p => `<button class="card" data-proj="${p.slug}"><img src="${p.img}
 
 const APPS = {
   work() {
-    const name = 'Zulqurnain';
-    const logo = [...name].map((c, i) => `<span style="color:${LOGO_COLORS[i]}">${c}</span>`).join('');
+    const name = (S.name || 'Zulqurnain').split(' ').pop();
+    const logo = [...name].map((c, i) => `<span style="color:${LOGO_COLORS[i % LOGO_COLORS.length]}">${esc(c)}</span>`).join('');
     const el = openWin('work', {
       title: 'Work — smzulqurnain.work', w: 760, h: 640, x: Math.max(12, innerWidth - 790), y: 24,
       body: `<div class="addr"><span>←&nbsp;→</span><b>smzulqurnain.work/featured</b></div>
@@ -167,9 +183,9 @@ const APPS = {
     });
     const t = el.querySelector('.term');
     const script = [
-      ['whoami', 'sm zulqurnain — motion designer'],
-      ['ls clients/', 'perodua  proton  mg  mitsubishi  kfc\npantene  maggi  rejoice  yeos  propertyguru'],
-      ['cat services.txt', 'social motion · TVC finishing · launch & event visuals · AI experiments'],
+      ['whoami', `${(S.name || '').toLowerCase()} — ${(S.role || 'motion designer').split('·')[0].trim().toLowerCase()}`],
+      ['ls clients/', clientList()],
+      ['cat services.txt', S.services || ''],
       ['open showreel.mp4', '→ click showreel.mp4 on the desktop, or hit ▶ in the dock'],
     ];
     let i = 0;
@@ -195,10 +211,12 @@ const APPS = {
   },
 
   reel() {
+    const link = safeUrl(S.showreel_link), vid = safeUrl(S.showreel_video), poster = safeUrl(S.showreel_poster);
+    const media = (vid && player(vid, 'Showreel')) ||
+      `<div class="reel">${poster ? `<img src="${poster}" alt="">` : ''}${link ? `<a href="${link}" target="_blank" rel="noopener" aria-label="Watch the showreel"></a>` : ''}</div>`;
     return openWin('reel', {
-      title: 'showreel.mp4', w: 520,
-      body: `<div class="reel"><img src="assets/thumbs/mg-cyberster-launch.jpg" alt=""><a href="https://vimeo.com/smzulqurnain" target="_blank" rel="noopener" aria-label="Watch the showreel on Vimeo"></a></div>
-        <div class="proj-info"><h3>Showreel 2026</h3><a class="btn" href="https://vimeo.com/smzulqurnain" target="_blank" rel="noopener">Watch on Vimeo ↗</a></div>`,
+      title: 'showreel.mp4', w: 560,
+      body: `${media}<div class="proj-info"><h3>Showreel</h3>${link ? `<a class="btn" href="${link}" target="_blank" rel="noopener">Watch full screen ↗</a>` : ''}</div>`,
     });
   },
 
@@ -208,18 +226,14 @@ const APPS = {
       title: 'about.txt', w: 440, x: 200, y: 40,
       body: `<div class="profile">
           <div class="avatar">${AVATAR}</div>
-          <h3>SM Zulqurnain</h3><p>Motion designer · Malaysia</p>
-          <a class="btn" href="${SITE}/contact" target="_blank" rel="noopener">Send message →</a>
+          <h3>${esc(S.name)}</h3><p>${esc(S.role)}</p>
+          ${S.contact_link ? `<a class="btn" href="${safeUrl(S.contact_link)}" target="_blank" rel="noopener">Send message →</a>` : ''}
           <div class="stats"><div><b>${PROJECTS.length}</b><span>Featured</span></div><div><b>${brands}</b><span>Brands</span></div><div><b>${Object.keys(FOLDERS).length}</b><span>Categories</span></div></div>
         </div>
         <div class="note">
           <div class="tags">${Object.values(FOLDERS).map(f => `<span class="tag" style="--c:${f.soft}">${f.name}</span>`).join('')}<span class="tag" style="--c:#d6f2ec">AI</span></div>
-          <p>I make social content, TVCs and launch visuals for brands like Perodua, MG, Proton, Mitsubishi, KFC and Pantene. In my spare time I make AI experiments, car renders and odd side projects. They’re in the Hobby folder.</p>
-          <div class="links">
-            <a class="btn ghost" href="https://www.behance.net/sydworks" target="_blank" rel="noopener">Behance</a>
-            <a class="btn ghost" href="https://www.linkedin.com/in/smzulqurnain/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn ghost" href="https://vimeo.com/smzulqurnain" target="_blank" rel="noopener">Vimeo</a>
-          </div></div>`,
+          ${paras(S.bio || '')}
+          <div class="links">${socials()}</div></div>`,
     });
   },
 
@@ -228,8 +242,7 @@ const APPS = {
       title: 'New Message', w: 440,
       body: `<div class="note"><h3>Let’s make something move.</h3>
         <p>For briefs, rates or a chat, use the contact form on my site, or find me on LinkedIn.</p>
-        <div class="links"><a class="btn" href="${SITE}/contact" target="_blank" rel="noopener">Open contact form ↗</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/smzulqurnain/" target="_blank" rel="noopener">LinkedIn</a></div></div>`,
+        <div class="links">${S.contact_link ? `<a class="btn" href="${safeUrl(S.contact_link)}" target="_blank" rel="noopener">Open contact form ↗</a>` : ''}${socials()}</div></div>`,
     });
   },
 
@@ -260,11 +273,24 @@ function openFolder(key) {
 
 function openProject(slug) {
   const p = PROJECTS.find(x => x.slug === slug); if (!p) return;
+  const media = (p.video && player(p.video, p.title)) || (p.img ? `<img src="${p.img}" alt="${esc(p.title)} still">` : '');
+  const gallery = p.gallery.length ? `<div class="gallery">${p.gallery.map(g => `<img src="${g}" alt="" loading="lazy">`).join('')}</div>` : '';
   openWin('proj:' + slug, {
-    title: p.title, w: 560,
-    body: `<div class="proj"><img src="${p.img}" alt="${esc(p.title)} still"><div class="proj-info"><h3>${esc(p.title)}</h3><span class="tag" style="--c:${FOLDERS[p.cat].soft}">${FOLDERS[p.cat].name}</span>
-      <a class="btn" href="${SITE}/${p.slug}" target="_blank" rel="noopener">View project ↗</a></div></div>`,
+    title: p.title, w: p.description || p.gallery.length ? 640 : 560,
+    body: `<div class="proj">${media}<div class="proj-info"><h3>${esc(p.title)}${p.client ? `<small>${esc(p.client)}</small>` : ''}</h3><span class="tag" style="--c:${FOLDERS[p.cat].soft}">${FOLDERS[p.cat].name}</span>
+      ${p.link ? `<a class="btn" href="${p.link}" target="_blank" rel="noopener">View project ↗</a>` : ''}</div>
+      ${p.description ? `<div class="proj-desc">${paras(p.description)}</div>` : ''}${gallery}</div>`,
   });
+}
+
+function clientList() {
+  const names = [...new Set(PROJECTS.map(p => p.client).filter(c => c && c !== 'Personal'))].map(c => slugify(c).replace(/-/g, ''));
+  const rows = []; for (let i = 0; i < names.length; i += 5) rows.push(names.slice(i, i + 5).join('  '));
+  return rows.join('\n');
+}
+function socials() {
+  return [['Behance', S.behance], ['LinkedIn', S.linkedin], ['Vimeo', S.vimeo]]
+    .filter(([, u]) => safeUrl(u)).map(([n, u]) => `<a class="btn ghost" href="${safeUrl(u)}" target="_blank" rel="noopener">${n}</a>`).join('');
 }
 
 // ---------- wiring ----------
@@ -293,5 +319,11 @@ const tickClock = () => { clock.textContent = new Date().toLocaleString('en-GB',
 tickClock(); setInterval(tickClock, 15000);
 
 // opening layout, like the reference: browser on the right, terminal on the left
-APPS.work();
-if (!mobile()) APPS.terminal();
+loadContent().then(() => {
+  if (S.tagline) document.querySelector('.mb-center').textContent = S.tagline;
+  APPS.work();
+  if (!mobile()) APPS.terminal();
+}).catch(err => {
+  console.error(err);
+  openWin('error', { title: 'Error', w: 380, body: `<div class="note"><h3>Couldn’t load content.</h3><p>${esc(err.message)}</p><p>If you just edited content in Pages CMS, check the JSON is valid, or reload in a minute.</p></div>` });
+});

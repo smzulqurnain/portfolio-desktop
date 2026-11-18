@@ -1,0 +1,78 @@
+# Pages CMS config: https://pagescms.org/docs
+# Sign in at https://app.pagescms.org with GitHub and pick this repo.
+
+media:
+  input: assets/thumbs
+  output: assets/thumbs
+
+content:
+  - name: projects
+    label: Projects
+    type: file
+    path: content/projects.json
+    format: json
+    fields:
+      - name: projects
+        label: Projects
+        description: Top of the list shows first on the site. Drag to reorder.
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: client
+            label: Client
+            description: Use "Personal" for your own projects.
+            type: string
+          - name: category
+            label: Folder
+            type: select
+            required: true
+            options:
+              values:
+                - { value: social, label: Social }
+                - { value: tvc, label: TVC }
+                - { value: events, label: Events }
+                - { value: hobby, label: Hobby }
+          - name: thumbnail
+            label: Thumbnail (16:9, about 640×360)
+            type: image
+            required: true
+          - name: video
+            label: Video link
+            description: Optional. A Vimeo or YouTube page link plays inside the window.
+            type: string
+          - name: description
+            label: Description
+            description: Optional. Leave a blank line between paragraphs.
+            type: text
+          - name: gallery
+            label: Extra images
+            description: Optional. Shown under the description.
+            type: image
+            list: true
+          - name: link
+            label: External link
+            description: Optional. Adds a "View project" button, for example your Adobe Portfolio page.
+            type: string
+
+  - name: site
+    label: Site text & links
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - { name: name, label: Name, type: string }
+      - { name: role, label: Role line, type: string }
+      - { name: tagline, label: Menu-bar tagline, type: string }
+      - { name: bio, label: About text, type: text }
+      - { name: services, label: Services (terminal line), type: string }
+      - { name: contact_link, label: Contact link, type: string }
+      - { name: showreel_video, label: Showreel video link (Vimeo/YouTube, plays in window), type: string }
+      - { name: showreel_link, label: Showreel button link, type: string }
+      - { name: showreel_poster, label: Showreel poster image, type: image }
+      - { name: behance, label: Behance, type: string }
+      - { name: linkedin, label: LinkedIn, type: string }
+      - { name: vimeo, label: Vimeo, type: string }
