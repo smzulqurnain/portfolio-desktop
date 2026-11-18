@@ -36,7 +36,7 @@ function cleanBlock(b) {
 function embedUrl(u) {
   let m;
   if ((m = u.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/(\w+))?/))) return `https://player.vimeo.com/video/${m[1]}${m[2] ? '?h=' + m[2] : ''}`;
-  if ((m = u.match(/(?:youtube(?:-nocookie)?\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{11})/))) return `https://www.youtube-nocookie.com/embed/${m[1]}`;
+  if ((m = u.match(/(?:youtube(?:-nocookie)?\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{11})/))) return `https://www.youtube-nocookie.com/embed/${m[1]}?rel=0&playsinline=1`;
   // Adobe/Behance-hosted video player (from Behance and Adobe Portfolio pages)
   if (/^https:\/\/www-ccv\.adobe\.io\/v1\/player\/ccv\/[\w-]+\/embed/.test(u)) return u;
   return '';
@@ -224,8 +224,8 @@ const APPS = {
     const media = (vid && player(vid, 'Showreel')) ||
       `<div class="reel">${poster ? `<img src="${poster}" alt="">` : ''}${link ? `<a href="${link}" target="_blank" rel="noopener" aria-label="Watch the showreel"></a>` : ''}</div>`;
     return openWin('reel', {
-      title: 'showreel.mp4', w: 560,
-      body: `${media}<div class="proj-info"><h3>Showreel</h3>${link ? `<a class="btn" href="${link}" target="_blank" rel="noopener">Watch full screen ↗</a>` : ''}</div>`,
+      title: 'showreel.mp4', w: 760,
+      body: `${media}<div class="proj-info"><h3>Showreel</h3>${link && !vid ? `<a class="btn" href="${link}" target="_blank" rel="noopener">Watch full screen ↗</a>` : ''}</div>`,
     });
   },
 
