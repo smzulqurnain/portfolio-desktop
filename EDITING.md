@@ -3,7 +3,7 @@
 All content lives in two files. The page reads them when it loads.
 
 - `content/projects.json`: every project window (title, client, folder, thumbnail, video, description, images, link)
-- `content/site.json`: your name, tagline, about text, showreel and social links
+- `content/site.json`: your name, handle, role, about text, showreel and social links
 
 ## With the control panel (Pages CMS)
 
@@ -14,7 +14,7 @@ All content lives in two files. The page reads them when it loads.
    - **Video link**: a Vimeo or YouTube page link plays inside the project window.
    - **Description** and **Extra images** turn the window into a full post.
    - **External link** adds a "View project ↗" button.
-4. **Site text & links**: edit the tagline, bio, showreel and socials.
+4. **Site text & links**: edit the bio, showreel and socials.
 
 Each save is a commit to GitHub. GitHub Pages republishes the site in about a minute.
 

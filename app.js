@@ -348,7 +348,6 @@ function initWidget() {
 
 // opening layout, like the reference: browser on the right, terminal on the left
 loadContent().then(() => {
-  if (S.tagline) document.querySelector('.mb-center').textContent = S.tagline;
   initWidget();
   // keep the centre clear for the widget: terminal on the left; Work opens from the dock or the terminal
   if (innerWidth >= 1100) APPS.terminal();
