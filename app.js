@@ -350,8 +350,7 @@ function initWidget() {
 // opening layout, like the reference: browser on the right, terminal on the left
 loadContent().then(() => {
   initWidget();
-  // keep the centre clear for the widget: terminal on the left; Work opens from the dock or the terminal
-  if (innerWidth >= 1100) APPS.terminal();
+  // desktop starts clear: the terminal opens from the menu-bar logo or the dock
 }).catch(err => {
   console.error(err);
   openWin('error', { title: 'Error', w: 380, body: `<div class="note"><h3>Couldn’t load content.</h3><p>${esc(err.message)}</p><p>If you just edited content in Pages CMS, check the JSON is valid, or reload in a minute.</p></div>` });
