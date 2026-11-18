@@ -82,6 +82,7 @@ function focusWin(w) {
 }
 function syncDock() {
   document.querySelectorAll('.dock [data-open]').forEach(b => b.classList.toggle('open', wins.has(b.dataset.open)));
+  document.querySelectorAll('.mb-left nav [data-folder]').forEach(b => b.classList.toggle('on', wins.has('folder:' + b.dataset.folder)));
 }
 function closeWin(id) {
   const w = wins.get(id); if (!w) return;
