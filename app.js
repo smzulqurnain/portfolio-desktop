@@ -14,23 +14,37 @@ async function loadContent() {
     return {
       slug: id, title: String(p.title), client: String(p.client || ''),
       cat: FOLDERS[p.category] ? p.category : 'social',
-      img: safeUrl(p.thumbnail), link: safeUrl(p.link), video: safeUrl(p.video),
-      description: String(p.description || ''), gallery: (p.gallery || []).map(safeUrl).filter(Boolean),
+      img: safeUrl(p.thumbnail),
+      blocks: (p.blocks || []).map(cleanBlock).filter(Boolean),
     };
   });
+}
+
+// one content block of a post: text, image, gallery (several images) or video
+const SHAPES = ['wide', 'square', 'portrait', 'tall'];
+function cleanBlock(b) {
+  if (!b) return null;
+  const kind = b.kind;
+  if (kind === 'text') return b.text ? { kind, text: String(b.text) } : null;
+  if (kind === 'image') { const image = safeUrl(b.image); return image ? { kind, image } : null; }
+  if (kind === 'gallery') { const images = (b.images || []).map(safeUrl).filter(Boolean); return images.length ? { kind, images } : null; }
+  if (kind === 'video') { const video = safeUrl(b.video); return video ? { kind, video, shape: SHAPES.includes(b.shape) ? b.shape : 'wide' } : null; }
+  return null;
 }
 
 // turn a Vimeo or YouTube page link into an embeddable player URL
 function embedUrl(u) {
   let m;
   if ((m = u.match(/vimeo\.com\/(?:video\/)?(\d+)(?:\/(\w+))?/))) return `https://player.vimeo.com/video/${m[1]}${m[2] ? '?h=' + m[2] : ''}`;
-  if ((m = u.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{11})/))) return `https://www.youtube-nocookie.com/embed/${m[1]}`;
+  if ((m = u.match(/(?:youtube(?:-nocookie)?\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{11})/))) return `https://www.youtube-nocookie.com/embed/${m[1]}`;
+  // Adobe/Behance-hosted video player (from Behance and Adobe Portfolio pages)
+  if (/^https:\/\/www-ccv\.adobe\.io\/v1\/player\/ccv\/[\w-]+\/embed/.test(u)) return u;
   return '';
 }
-const player = (u, title) => {
+const player = (u, title, shape = 'wide') => {
   const src = embedUrl(u);
-  if (src) return `<div class="player"><iframe src="${src}" title="${esc(title)}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
-  if (/\.(mp4|webm|mov)(\?|$)/i.test(u)) return `<div class="player"><video src="${u}" controls playsinline preload="metadata"></video></div>`;
+  if (src) return `<div class="player ${shape}"><iframe src="${src}" title="${esc(title)}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
+  if (/\.(mp4|webm|mov)(\?|$)/i.test(u)) return `<div class="player ${shape}"><video src="${u}" controls playsinline preload="metadata"></video></div>`;
   return '';
 };
 const paras = t => esc(t).split(/\n{2,}/).map(x => `<p>${x.replace(/\n/g, '<br>')}</p>`).join('');
@@ -269,14 +283,35 @@ function openFolder(key) {
 
 function openProject(slug) {
   const p = PROJECTS.find(x => x.slug === slug); if (!p) return;
-  const media = (p.video && player(p.video, p.title)) || (p.img ? `<img src="${p.img}" alt="${esc(p.title)} still">` : '');
-  const gallery = p.gallery.length ? `<div class="gallery">${p.gallery.map(g => `<img src="${g}" alt="" loading="lazy">`).join('')}</div>` : '';
-  openWin('proj:' + slug, {
-    title: p.title, w: p.description || p.gallery.length ? 640 : 560,
-    body: `<div class="proj">${media}<div class="proj-info"><h3>${esc(p.title)}${p.client ? `<small>${esc(p.client)}</small>` : ''}</h3><span class="tag" style="--c:${FOLDERS[p.cat].soft}">${FOLDERS[p.cat].name}</span>
-      ${p.link ? `<a class="btn" href="${p.link}" target="_blank" rel="noopener">View project ↗</a>` : ''}</div>
-      ${p.description ? `<div class="proj-desc">${paras(p.description)}</div>` : ''}${gallery}</div>`,
+  const blocks = p.blocks.slice();
+  // a leading image becomes the edge-to-edge hero; otherwise the thumbnail is
+  const heroSrc = blocks[0]?.kind === 'image' ? blocks.shift().image : p.img;
+  const hero = heroSrc ? `<img class="proj-hero" src="${heroSrc}" alt="${esc(p.title)}">` : '';
+  // consecutive non-wide videos sit side by side in one row
+  const grouped = [];
+  for (const b of blocks) {
+    const last = grouped[grouped.length - 1];
+    if (b.kind === 'video' && b.shape !== 'wide') {
+      if (last?.kind === 'video-row') last.items.push(b); else grouped.push({ kind: 'video-row', items: [b] });
+    } else grouped.push(b);
+  }
+  const body = grouped.map(b => {
+    if (b.kind === 'video-row') return `<div class="video-row n${Math.min(b.items.length, 3)}">${b.items.map(v => player(v.video, p.title, v.shape)).join('')}</div>`;
+    if (b.kind === 'text') {
+      const short = b.text.length <= 60 && b.text.split('\n').length <= 2;
+      return short ? `<h4 class="post-h">${esc(b.text).replace(/\n/g, ' ')}</h4>` : `<div class="post-text">${paras(b.text)}</div>`;
+    }
+    if (b.kind === 'image') return `<img class="post-img" src="${b.image}" alt="" loading="lazy">`;
+    if (b.kind === 'gallery') return `<div class="post-gallery">${b.images.map(g => `<img src="${g}" alt="" loading="lazy">`).join('')}</div>`;
+    if (b.kind === 'video') return player(b.video, p.title, b.shape);
+    return '';
+  }).join('');
+  const w = openWin('proj:' + slug, {
+    title: p.title, w: 760, h: 760,
+    body: `<article class="proj">${hero}<div class="proj-info"><h3>${esc(p.title)}${p.client ? `<small>${esc(p.client)}</small>` : ''}</h3><span class="tag" style="--c:${FOLDERS[p.cat].soft}">${FOLDERS[p.cat].name}</span></div>
+      <div class="post">${body}</div></article>`,
   });
+  return w;
 }
 
 function clientList() {

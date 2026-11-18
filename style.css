@@ -147,14 +147,33 @@ button.wg:hover{transform:translateY(-3px)}
 .btn.ghost{background:var(--paper);color:var(--ink)}
 .btn.ghost:hover{background:var(--yellow-soft)}
 
-/* post extras */
-.player{aspect-ratio:16/9;background:var(--ink);border-bottom:var(--stroke) solid var(--ink)}
-.player iframe,.player video{width:100%;height:100%;border:0;display:block}
+/* post (project window) */
+.proj-hero{width:100%;max-height:min(420px,52vh);object-fit:contain;background:var(--paper);display:block;border-bottom:var(--stroke) solid var(--ink)}
 .proj-info h3 small{display:block;font:500 12px var(--ui);color:var(--muted);margin-top:3px}
-.proj-desc{padding:0 16px 6px;max-width:62ch}
-.proj-desc p{margin:0 0 10px}
-.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;padding:6px 16px 16px}
-.gallery img{width:100%;border:var(--stroke) solid var(--ink);border-radius:10px}
+.post{padding:0 22px 26px;display:flex;flex-direction:column;gap:14px}
+.post-h{margin:12px 0 -4px;font:800 18px/1.2 var(--display)}
+.post-text{max-width:62ch;color:#2b2b2b}
+.post-text p{margin:0 0 10px}
+.post-img{width:100%;border:var(--stroke) solid var(--ink);border-radius:10px}
+.post-gallery{display:flex;flex-wrap:wrap;gap:8px}
+.post-gallery img{height:210px;flex:1 1 auto;min-width:120px;max-width:100%;object-fit:cover;border:var(--stroke) solid var(--ink);border-radius:10px;background:var(--chrome)}
+.player{position:relative;width:100%;background:var(--ink);border:var(--stroke) solid var(--ink);border-radius:10px;overflow:hidden;margin:0 auto}
+.player.wide{aspect-ratio:16/9}
+.player.square{aspect-ratio:1;max-width:460px}
+.player.portrait{aspect-ratio:4/5;max-width:420px}
+.player.tall{aspect-ratio:9/16;max-width:340px}
+.player iframe,.player video{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.video-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.video-row .player{flex:1 1 200px;margin:0}
+.video-row.n1 .player{flex:0 1 auto;width:100%}
+.video-row .player.tall{max-width:260px}
+.video-row .player.portrait{max-width:300px}
+.video-row .player.square{max-width:340px}
+.video-row.n1 .player.tall{max-width:340px}
+.video-row.n1 .player.square{max-width:460px}
+/* showreel window: player sits edge to edge */
+.win-body > .player{border:0;border-bottom:var(--stroke) solid var(--ink);border-radius:0;max-width:none}
+@media (max-width:720px){.post{padding:0 14px 20px}.post-gallery img{height:150px}}
 
 /* folder */
 .files{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:14px 10px;padding:16px}

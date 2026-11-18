@@ -40,23 +40,48 @@ content:
             label: Thumbnail (16:9, about 640×360)
             type: image
             required: true
-          - name: video
-            label: Video link
-            description: Optional. A Vimeo or YouTube page link plays inside the window.
-            type: string
-          - name: description
-            label: Description
-            description: Optional. Leave a blank line between paragraphs.
-            type: text
-          - name: gallery
-            label: Extra images
-            description: Optional. Shown under the description.
-            type: image
+          - name: blocks
+            label: Post content
+            description: Shown in order inside the project window. Add a block, pick its type, and fill in only the matching field.
+            type: object
             list: true
-          - name: link
-            label: External link
-            description: Optional. Adds a "View project" button, for example your Adobe Portfolio page.
-            type: string
+            fields:
+              - name: kind
+                label: Block type
+                type: select
+                required: true
+                options:
+                  values:
+                    - { value: text, label: Text }
+                    - { value: image, label: Image }
+                    - { value: gallery, label: Image row (several images) }
+                    - { value: video, label: Video }
+              - name: text
+                label: Text
+                description: For Text blocks. A short line shows as a heading. Leave a blank line between paragraphs.
+                type: text
+              - name: image
+                label: Image
+                description: For Image blocks.
+                type: image
+              - name: images
+                label: Images
+                description: For Image row blocks.
+                type: image
+                list: true
+              - name: video
+                label: Video link
+                description: For Video blocks. A Vimeo, YouTube or Behance/Adobe video embed link.
+                type: string
+              - name: shape
+                label: Video shape
+                type: select
+                options:
+                  values:
+                    - { value: wide, label: "Wide 16:9" }
+                    - { value: square, label: "Square 1:1" }
+                    - { value: portrait, label: "Portrait 4:5" }
+                    - { value: tall, label: "Tall 9:16 (Reels/TikTok)" }
 
   - name: site
     label: Site text & links
