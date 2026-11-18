@@ -171,7 +171,7 @@ const APPS = {
 
   terminal() {
     const el = openWin('terminal', {
-      title: 'zsh — 80×24', w: 380, x: Math.max(12, innerWidth * .08 + 160), y: Math.min(innerHeight * .34, 300),
+      title: 'zsh — 80×24', w: 380, x: 28, y: 24,
       body: `<div class="term" aria-live="polite"></div>`,
     });
     const t = el.querySelector('.term');
@@ -179,6 +179,7 @@ const APPS = {
       ['whoami', `${(S.name || '').toLowerCase()} — ${(S.role || 'motion designer').split('·')[0].trim().toLowerCase()}`],
       ['ls clients/', clientList()],
       ['cat services.txt', S.services || ''],
+      ['ls work/', `${PROJECTS.length} projects → click the globe in the dock`],
       ['open showreel.mp4', '→ hit ▶ in the dock'],
     ];
     let i = 0;
@@ -311,11 +312,46 @@ const clock = document.getElementById('clock');
 const tickClock = () => { clock.textContent = new Date().toLocaleString('en-GB', { weekday: 'short', hour: '2-digit', minute: '2-digit' }).replace(',', ''); };
 tickClock(); setInterval(tickClock, 15000);
 
+// ---------- centre widget ----------
+function initWidget() {
+  const wg = document.querySelector('.widget');
+  wg.querySelector('.wg-avatar').innerHTML = AVATAR;
+  wg.querySelector('.wg-handle').textContent = S.handle || slugify(S.name || '').replace(/-/g, '');
+  wg.querySelector('.wg-role').textContent = S.role || '';
+  // clock
+  const day = wg.querySelector('.wg-day b'), date = wg.querySelector('.wg-day span'), time = wg.querySelector('.wg-time'), ampm = wg.querySelector('.wg-ampm');
+  const tick = () => {
+    const d = new Date();
+    day.textContent = d.toLocaleDateString('en-GB', { weekday: 'long' });
+    date.textContent = d.toLocaleDateString('en-GB', { month: 'long', day: '2-digit' }).split(' ').reverse().join(' ');
+    const h = d.getHours();
+    time.textContent = `${String(h % 12 || 12).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+    ampm.textContent = h < 12 ? 'AM' : 'PM';
+  };
+  tick(); setInterval(tick, 10000);
+  // now playing: cycles through the projects; click opens the one showing
+  const now = wg.querySelector('.wg-now'), img = now.querySelector('img'), title = now.querySelector('.wg-title'), client = now.querySelector('.wg-client');
+  const list = PROJECTS.filter(p => p.img);
+  let i = 0, hover = false;
+  const show = () => { const p = list[i]; if (!p) return; img.src = p.img; img.alt = p.title; title.textContent = p.title; client.textContent = p.client; now.dataset.proj = p.slug; now.setAttribute('aria-label', `Now playing: ${p.title}. Open project`); };
+  show();
+  list.slice(1, 4).forEach(p => { new Image().src = p.img; });
+  now.addEventListener('pointerenter', () => hover = true);
+  now.addEventListener('pointerleave', () => hover = false);
+  if (list.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => {
+    if (hover || document.hidden) return;
+    now.classList.add('swap');
+    setTimeout(() => { i = (i + 1) % list.length; show(); img.decode?.().catch(() => {}).finally(() => now.classList.remove('swap')); }, 350);
+  }, 4000);
+  wg.hidden = false;
+}
+
 // opening layout, like the reference: browser on the right, terminal on the left
 loadContent().then(() => {
   if (S.tagline) document.querySelector('.mb-center').textContent = S.tagline;
-  APPS.work();
-  if (!mobile()) APPS.terminal();
+  initWidget();
+  // keep the centre clear for the widget: terminal on the left; Work opens from the dock or the terminal
+  if (innerWidth >= 1100) APPS.terminal();
 }).catch(err => {
   console.error(err);
   openWin('error', { title: 'Error', w: 380, body: `<div class="note"><h3>Couldn’t load content.</h3><p>${esc(err.message)}</p><p>If you just edited content in Pages CMS, check the JSON is valid, or reload in a minute.</p></div>` });

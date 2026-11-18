@@ -65,6 +65,7 @@ content:
     format: json
     fields:
       - { name: name, label: Name, type: string }
+      - { name: handle, label: Widget handle, type: string }
       - { name: role, label: Role line, type: string }
       - { name: tagline, label: Menu-bar tagline, type: string }
       - { name: bio, label: About text, type: text }

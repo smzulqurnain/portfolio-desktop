@@ -39,6 +39,23 @@
   <div class="mb-right"><button class="wall" id="wall" title="Change wallpaper" aria-label="Change wallpaper"></button><span class="battery"><i></i></span><span id="clock">—</span></div>
 </header>
 
+<!-- centre widget: profile, clock, now playing -->
+<section class="widget" aria-label="Desktop widget" hidden>
+  <button class="wg wg-profile" data-open="about">
+    <span class="wg-avatar"></span>
+    <span><b class="wg-handle"></b><span class="wg-role"></span></span>
+  </button>
+  <div class="wg wg-clock" aria-live="off">
+    <span class="wg-day"><b></b><span></span></span>
+    <span class="wg-time"></span><span class="wg-ampm"></span>
+  </div>
+  <button class="wg wg-now">
+    <span class="wg-art"><img alt=""></span>
+    <span class="wg-label"><i></i><i></i><i></i>Now playing</span>
+    <span class="wg-title"></span><b class="wg-client"></b>
+  </button>
+</section>
+
 <main id="desk"></main>
 
 <!-- dock -->
