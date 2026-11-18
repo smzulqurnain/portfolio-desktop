@@ -258,8 +258,8 @@ const APPS = {
 
   finder() {
     const el = openWin('finder', {
-      title: 'Folders', w: 380,
-      body: `<div class="finder">${Object.entries(FOLDERS).map(([k, f]) => `<button data-folder="${k}" style="--c:${f.soft}"><span class="ico folder" style="background-image:${folderSvg(f.color)}"></span><span>${f.name}<small>${f.blurb}</small></span></button>`).join('')}</div>`,
+      title: 'Folders', w: 420,
+      body: `<div class="finder">${Object.entries(FOLDERS).map(([k, f]) => `<button data-folder="${k}" title="${esc(f.blurb)}"><span class="ico folder" style="background-image:${folderSvg(f.color).replace(/"/g, '&quot;')}"></span><span class="finder-name">${f.name}</span></button>`).join('')}</div>`,
     });
     return el;
   },
