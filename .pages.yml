@@ -70,7 +70,8 @@ content:
       - { name: role, label: Role line, type: string }
       - { name: bio, label: About text, type: text }
       - { name: services, label: Services (terminal line), type: string }
-      - { name: contact_link, label: Contact link, type: string }
+      - { name: email, label: Contact email, type: string }
+      - { name: contact_link, label: Contact link (About window button), type: string }
       - { name: showreel_video, label: Showreel video link (Vimeo/YouTube, plays in window), type: string }
       - { name: showreel_link, label: Showreel button link, type: string }
       - { name: showreel_poster, label: Showreel poster image, type: image }

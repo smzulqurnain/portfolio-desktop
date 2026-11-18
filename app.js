@@ -233,11 +233,12 @@ const APPS = {
   },
 
   contact() {
+    const email = /^[^\s@<>"]+@[^\s@<>"]+\.[a-z]{2,}$/i.test(S.email || '') ? S.email : '';
     return openWin('contact', {
       title: 'New Message', w: 440,
       body: `<div class="note"><h3>Let’s make something move.</h3>
-        <p>For briefs, rates or a chat, use the contact form on my site, or find me on LinkedIn.</p>
-        <div class="links">${S.contact_link ? `<a class="btn" href="${safeUrl(S.contact_link)}" target="_blank" rel="noopener">Open contact form ↗</a>` : ''}${socials()}</div></div>`,
+        <p class="mail-label">Get in touch</p>
+        ${email ? `<a class="mail" href="mailto:${email}">${esc(email)}</a>` : ''}</div>`,
     });
   },
 

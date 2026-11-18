@@ -181,6 +181,11 @@ button.wg:hover{transform:translateY(-3px)}
 .reel a:hover{transform:scale(1.1)}
 .reel a::after{content:"";border-left:22px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px}
 
+/* contact */
+.mail-label{margin:14px 0 2px!important;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.mail{font:800 22px/1.2 var(--display);text-decoration:none;background:linear-gradient(var(--yellow),var(--yellow)) 0 88%/100% 35% no-repeat;padding:0 2px;word-break:break-all}
+.mail:hover{background-size:100% 100%}
+
 /* profile (kit profile screen) */
 .profile{background:var(--blue);color:var(--paper);text-align:center;padding:22px 20px 18px;border-bottom:var(--stroke) solid var(--ink)}
 .avatar{width:92px;height:92px;margin:0 auto 10px;border-radius:50%;border:var(--stroke) solid var(--ink);background:var(--yellow);overflow:hidden}
