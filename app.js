@@ -20,12 +20,18 @@ const PROJECTS = [
   P('Proton Social Media', 'proton-social-media-motion-graphics', 'proton-social-media', 'social', 'Proton'),
 ];
 const FOLDERS = {
-  social: { name: 'Social', page: 'social-media', color: 'f7b267' },
-  tvc:    { name: 'TVC', page: 'tvc-motion', color: 'bfe3f2' },
-  events: { name: 'Events', page: 'events', color: 'ffb3c7' },
-  hobby:  { name: 'Hobby', page: 'hobby', color: 'f6d84a' },
+  social: { name: 'Social', page: 'social-media', color: 'f08fb6', soft: 'var(--pink-soft)', blurb: 'Launches, KOL and always-on content' },
+  tvc:    { name: 'TVC', page: 'tvc-motion', color: 'cdebf7', soft: 'var(--blue-soft)', blurb: 'Broadcast spots and DOOH' },
+  events: { name: 'Events', page: 'events', color: 'ef6a3e', soft: '#fbd3c4', blurb: 'Stage openers and event visuals' },
+  hobby:  { name: 'Hobby', page: 'hobby', color: 'f5c24f', soft: 'var(--yellow-soft)', blurb: 'AI tests, renders, side projects' },
 };
-const LOGO_COLORS = ['#5b63e6', '#ef5a4c', '#f6d84a', '#5b63e6', '#4fd17a', '#ef5a4c', '#f7b267', '#bfe3f2', '#ffb3c7', '#4fd17a'];
+const LOGO_COLORS = ['#2448d9', '#ef6a3e', '#f5c24f', '#f08fb6', '#6fcbb8', '#2448d9', '#ef6a3e', '#f5c24f', '#f08fb6', '#6fcbb8'];
+const AVATAR = `<svg viewBox="0 0 92 92" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M22 92c2-16 12-24 24-24s22 8 24 24" fill="#fff"/><path d="M38 68v-8h16v8" fill="#fff"/>
+  <ellipse cx="46" cy="44" rx="17" ry="20" fill="#fff"/>
+  <path d="M29 40c0-14 8-22 18-22s17 7 17 20c-6-2-12-7-14-12-4 8-13 12-21 14z" fill="#141414"/>
+  <circle cx="39.5" cy="46" r="1.6" fill="#141414"/><circle cx="52.5" cy="46" r="1.6" fill="#141414"/>
+  <path d="M46 48v6h-3M41 58c3 2 7 2 10 0"/><path d="M33 46h12M47 46h12" stroke-width="1.6"/><rect x="33" y="42" width="11" height="8" rx="4"/><rect x="48" y="42" width="11" height="8" rx="4"/></svg>`;
 const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 // tint folder icons
@@ -112,7 +118,7 @@ const APPS = {
       body: `<div class="addr"><span>←&nbsp;→</span><b>smzulqurnain.work/featured</b></div>
         <div class="engine"><h1 class="logo" aria-label="${name}">${logo}</h1>
           <label class="search"><input type="search" placeholder="Search work… try “Perodua” or “TVC”" aria-label="Search work"><kbd>⌘K</kbd></label>
-          <div class="chips"><button class="chip on" data-chip="">All</button>${Object.entries(FOLDERS).filter(([k]) => PROJECTS.some(p => p.cat === k)).map(([k, f]) => `<button class="chip" data-chip="${k}">${f.name}</button>`).join('')}</div>
+          <div class="chips"><button class="chip on" data-chip="">All</button>${Object.entries(FOLDERS).filter(([k]) => PROJECTS.some(p => p.cat === k)).map(([k, f]) => `<button class="chip" data-chip="${k}" style="--c:${f.soft}">${f.name}</button>`).join('')}</div>
         </div><div class="results"></div>`,
     });
     const input = el.querySelector('input'), res = el.querySelector('.results');
@@ -173,17 +179,23 @@ const APPS = {
   },
 
   about() {
+    const brands = new Set(PROJECTS.filter(p => p.client !== 'Personal').map(p => p.client)).size;
     return openWin('about', {
-      title: 'about.txt', w: 460, x: 200, y: 70,
-      body: `<div class="note"><h3>Hi, I’m Zul.</h3>
-        <p>I’m a <span class="hl">motion designer</span> in Malaysia. I make social content, TVCs and launch visuals for brands like Perodua, MG, Proton, Mitsubishi, KFC and Pantene.</p>
-        <p>In my spare time I make AI experiments, car renders and odd side projects. They’re in the Hobby folder.</p>
-        <div class="links">
-          <a class="btn" href="${SITE}/contact" target="_blank" rel="noopener">Contact ↗</a>
-          <a class="btn ghost" href="https://www.behance.net/sydworks" target="_blank" rel="noopener">Behance</a>
-          <a class="btn ghost" href="https://www.linkedin.com/in/smzulqurnain/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn ghost" href="https://vimeo.com/smzulqurnain" target="_blank" rel="noopener">Vimeo</a>
-        </div></div>`,
+      title: 'about.txt', w: 440, x: 200, y: 40,
+      body: `<div class="profile">
+          <div class="avatar">${AVATAR}</div>
+          <h3>SM Zulqurnain</h3><p>Motion designer · Malaysia</p>
+          <a class="btn" href="${SITE}/contact" target="_blank" rel="noopener">Send message →</a>
+          <div class="stats"><div><b>${PROJECTS.length}</b><span>Featured</span></div><div><b>${brands}</b><span>Brands</span></div><div><b>${Object.keys(FOLDERS).length}</b><span>Categories</span></div></div>
+        </div>
+        <div class="note">
+          <div class="tags">${Object.values(FOLDERS).map(f => `<span class="tag" style="--c:${f.soft}">${f.name}</span>`).join('')}<span class="tag" style="--c:#d6f2ec">AI</span></div>
+          <p>I make social content, TVCs and launch visuals for brands like Perodua, MG, Proton, Mitsubishi, KFC and Pantene. In my spare time I make AI experiments, car renders and odd side projects. They’re in the Hobby folder.</p>
+          <div class="links">
+            <a class="btn ghost" href="https://www.behance.net/sydworks" target="_blank" rel="noopener">Behance</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/smzulqurnain/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn ghost" href="https://vimeo.com/smzulqurnain" target="_blank" rel="noopener">Vimeo</a>
+          </div></div>`,
     });
   },
 
@@ -199,8 +211,8 @@ const APPS = {
 
   finder() {
     const el = openWin('finder', {
-      title: 'Folders', w: 360,
-      body: `<div class="finder">${Object.entries(FOLDERS).map(([k, f]) => `<button data-folder="${k}"><span class="ico folder" style="background-image:${folderSvg(f.color)}"></span>${f.name}</button>`).join('')}</div>`,
+      title: 'Folders', w: 380,
+      body: `<div class="finder">${Object.entries(FOLDERS).map(([k, f]) => `<button data-folder="${k}" style="--c:${f.soft}"><span class="ico folder" style="background-image:${folderSvg(f.color)}"></span><span>${f.name}<small>${f.blurb}</small></span></button>`).join('')}</div>`,
     });
     return el;
   },
@@ -226,7 +238,7 @@ function openProject(slug) {
   const p = PROJECTS.find(x => x.slug === slug); if (!p) return;
   openWin('proj:' + slug, {
     title: p.title, w: 560,
-    body: `<div class="proj"><img src="${p.img}" alt="${esc(p.title)} still"><div class="proj-info"><h3>${esc(p.title)}</h3><span class="tag">${FOLDERS[p.cat].name}</span>
+    body: `<div class="proj"><img src="${p.img}" alt="${esc(p.title)} still"><div class="proj-info"><h3>${esc(p.title)}</h3><span class="tag" style="--c:${FOLDERS[p.cat].soft}">${FOLDERS[p.cat].name}</span>
       <a class="btn" href="${SITE}/${p.slug}" target="_blank" rel="noopener">View project ↗</a></div></div>`,
   });
 }
@@ -242,6 +254,14 @@ document.addEventListener('keydown', e => {
   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); APPS.work().querySelector('input')?.focus(); }
   if (e.key === 'Escape') { const top = [...wins.entries()].sort((a, b) => b[1].style.zIndex - a[1].style.zIndex)[0]; if (top) closeWin(top[0]); }
 });
+
+// wallpaper: kit colours
+const WALLS = ['#c56a6c', '#59c3af', '#2448d9', '#f5c24f', '#f08fb6'];
+let wall = 0;
+try { wall = +localStorage.getItem('wall') || 0; } catch {}
+const setWall = () => { document.body.style.setProperty('--desk', WALLS[wall % WALLS.length]); try { localStorage.setItem('wall', wall % WALLS.length); } catch {} };
+setWall();
+document.getElementById('wall').onclick = () => { wall++; setWall(); };
 
 // clock
 const clock = document.getElementById('clock');
