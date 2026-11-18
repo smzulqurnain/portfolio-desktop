@@ -159,7 +159,7 @@ const card = p => `<button class="card" data-proj="${p.slug}"><img src="${p.img}
 
 const APPS = {
   work() {
-    const name = (S.name || 'Zulqurnain').split(' ').pop();
+    const name = S.logo_word || (S.name || 'Zulqurnain').split(' ').pop();
     const logo = [...name].map((c, i) => `<span style="color:${LOGO_COLORS[i % LOGO_COLORS.length]}">${esc(c)}</span>`).join('');
     const el = openWin('work', {
       title: 'Work — smzulqurnain.work', w: 760, h: 640, x: Math.max(12, innerWidth - 790), y: 24,

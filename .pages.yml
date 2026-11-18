@@ -91,6 +91,7 @@ content:
     fields:
       - { name: name, label: Name, type: string }
       - { name: handle, label: Widget handle, type: string }
+      - { name: logo_word, label: Work window logo word, type: string }
       - { name: avatar, label: Profile picture (square), type: image }
       - { name: role, label: Role line, type: string }
       - { name: bio, label: About text, type: text }
