@@ -201,6 +201,11 @@ video.post-img{display:block}
 .reel a:hover{transform:scale(1.1)}
 .reel a::after{content:"";border-left:22px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px}
 
+/* credit line (About window) */
+.credit{margin:16px 0 0!important;padding-top:12px;border-top:1px dashed #cfcfcf;font-size:12px;color:var(--muted)}
+.credit a{color:var(--ink);font-weight:600;text-decoration-thickness:1px;text-underline-offset:2px}
+.credit a:hover{background:var(--yellow-soft)}
+
 /* contact */
 .mail-label{margin:14px 0 2px!important;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .mail{font:800 22px/1.2 var(--display);text-decoration:none;background:linear-gradient(var(--yellow),var(--yellow)) 0 88%/100% 35% no-repeat;padding:0 2px;word-break:break-all}

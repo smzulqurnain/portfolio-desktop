@@ -242,7 +242,8 @@ const APPS = {
         <div class="note">
           <div class="tags">${Object.values(FOLDERS).map(f => `<span class="tag" style="--c:${f.soft}">${f.name}</span>`).join('')}<span class="tag" style="--c:#d6f2ec">AI</span></div>
           ${paras(S.bio || '')}
-          <div class="links">${socials()}</div></div>`,
+          <div class="links">${socials()}</div>
+          <p class="credit">UI based on the <a href="https://contrauikit.com/" target="_blank" rel="noopener">Contra Wireframe Kit</a> by <a href="https://vijayverma.co/" target="_blank" rel="noopener">Vijay Verma</a>.</p></div>`,
     });
   },
 
