@@ -156,7 +156,7 @@ function drag(el) {
 }
 
 // ---------- apps ----------
-const card = p => `<button class="card" data-proj="${p.slug}"><img src="${p.img}" alt="" loading="lazy"><p>${esc(p.title)}<small>${esc(p.client)}</small></p></button>`;
+const card = p => `<button class="file" data-proj="${p.slug}"><img src="${p.img}" alt="" loading="lazy">${esc(p.title)}</button>`;
 
 const APPS = {
   work() {
@@ -168,7 +168,7 @@ const APPS = {
         <div class="engine"><h1 class="logo" aria-label="${name}">${logo}</h1>
           <label class="search"><input type="search" placeholder="Search work… try “Perodua” or “TVC”" aria-label="Search work"><kbd>⌘K</kbd></label>
           <div class="chips"><button class="chip on" data-chip="">All</button>${Object.entries(FOLDERS).filter(([k]) => PROJECTS.some(p => p.cat === k)).map(([k, f]) => `<button class="chip" data-chip="${k}" style="--c:${f.soft}">${f.name}</button>`).join('')}</div>
-        </div><div class="results"></div>`,
+        </div><div class="results files"></div>`,
     });
     const input = el.querySelector('input'), res = el.querySelector('.results');
     let chip = '';
