@@ -98,7 +98,7 @@
     // ---------- input: drag / mouse / keys move, firing is automatic ----------
     const toX = e => { const r = cv.getBoundingClientRect(); return (e.clientX - r.left) / r.width * W; };
     cv.addEventListener('pointerdown', e => {
-      if (state !== 'play') { if (!e.target.closest('.ri-cta')) newGame(); return; }
+      if (state !== 'play') { newGame(); return; }
       try { cv.setPointerCapture(e.pointerId); } catch {}
       S.tx = toX(e);
     });
@@ -194,11 +194,9 @@
         const win = S.result === 'win';
         card.innerHTML = `<h3 class="ri-title" style="color:${win ? C.ok : C.fail}">${win ? 'FINAL CUT<br>APPROVED' : 'MISSION<br>FAILED'}</h3>
           <p class="ri-big">Score ${S.score}</p>
-          <p class="ri-go">Tap to retry</p>
-          <button class="ri-cta">Need a real editor? Send a signal →</button>`;
-        card.querySelector('.ri-cta').onclick = e => { e.stopPropagation(); APPS.contact(); };
+          <p class="ri-go">Tap to retry</p>`;
       }
-      card.addEventListener('pointerdown', e => { if (!e.target.closest('.ri-cta')) { card.remove(); newGame(); } });
+      card.addEventListener('pointerdown', () => { card.remove(); newGame(); });
       stage.append(card);
     }
     const origNew = newGame;
