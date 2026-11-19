@@ -62,13 +62,17 @@ content:
                 type: text
               - name: image
                 label: Image
-                description: For Image blocks.
+                description: For Image blocks. Short looping clips (.mp4) work here too.
                 type: image
+                options:
+                  extensions: [jpg, jpeg, png, gif, webp, avif, svg, mp4, webm, mov]
               - name: images
                 label: Images
                 description: For Image row blocks. Short looping clips (.mp4) work here too, in place of GIFs.
                 type: image
                 list: true
+                options:
+                  extensions: [jpg, jpeg, png, gif, webp, avif, svg, mp4, webm, mov]
               - name: video
                 label: Video link
                 description: For Video blocks. A Vimeo, YouTube or Behance/Adobe video embed link.
