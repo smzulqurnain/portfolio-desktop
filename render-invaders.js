@@ -206,4 +206,38 @@
     raf = requestAnimationFrame(loop);
     return el;
   };
+
+  // ---------- secret entrance: the Konami code ----------
+  // Keyboard: ↑ ↑ ↓ ↓ ← → ← → B A. Touch: swipe up up down down left right left right, then tap tap.
+  const CODE = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
+  let pos = 0;
+  function feed(step) {
+    pos = step === CODE[pos] ? pos + 1 : (step === CODE[0] ? 1 : 0);
+    if (pos === CODE.length) { pos = 0; unlock(); }
+  }
+  function unlock() {
+    const t = Object.assign(document.createElement('div'), { className: 'ri-toast', textContent: '★ Cheat code accepted' });
+    document.body.append(t); setTimeout(() => t.remove(), 2200);
+    blip(660, .1, 'square', .05); setTimeout(() => blip(990, .18, 'square', .05), 110);
+    APPS.invaders();
+  }
+  const KEYMAP = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right', b: 'b', B: 'b', a: 'a', A: 'a' };
+  document.addEventListener('keydown', e => {
+    if (e.target.closest?.('input, textarea, [contenteditable]')) return; // not while typing in the search box
+    if (wins.get('invaders')?.classList.contains('front')) return;      // arrows belong to the game while it's open
+    const k = KEYMAP[e.key]; k ? feed(k) : (pos = 0);
+  });
+  // touch: swipes and taps on the empty desktop (not inside windows or the dock)
+  let sx = 0, sy = 0, tracking = false;
+  document.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'mouse' || e.target.closest('.win, .dock-wrap, .menubar, .widget')) return;
+    tracking = true; sx = e.clientX; sy = e.clientY;
+  });
+  document.addEventListener('pointerup', e => {
+    if (!tracking) return; tracking = false;
+    const dx = e.clientX - sx, dy = e.clientY - sy, ax = Math.abs(dx), ay = Math.abs(dy);
+    if (ax < 12 && ay < 12) return feed(pos === 8 ? 'b' : 'a'); // the two taps stand in for B and A
+    if (Math.max(ax, ay) < 30) return;
+    feed(ax > ay ? (dx > 0 ? 'right' : 'left') : (dy > 0 ? 'down' : 'up'));
+  });
 })();
