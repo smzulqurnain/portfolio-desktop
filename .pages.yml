@@ -20,7 +20,10 @@ content:
         label: Projects
         description: Top of the list shows first on the site. Drag to reorder.
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
         fields:
           - name: title
             label: Title
@@ -48,7 +51,10 @@ content:
             label: Post content
             description: Shown in order inside the project window. Add a block, pick its type, and fill in only the matching field.
             type: object
-            list: true
+            list:
+              collapsible:
+                collapsed: false
+                summary: "{index} · {kind}"
             fields:
               - name: kind
                 label: Block type
