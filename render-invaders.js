@@ -226,12 +226,11 @@
     dock.append(b);
     return true;
   }
-  // stays installed for this visitor on later visits
-  try { if (localStorage.getItem('ri-installed')) installIcon(false); } catch {}
+  // installed only for this page view: a reload removes it, so the code is needed every visit
+  try { localStorage.removeItem('ri-installed'); } catch {} // clear the old saved flag from earlier versions
 
   function unlock() {
     const fresh = installIcon(true);
-    try { localStorage.setItem('ri-installed', '1'); } catch {}
     const t = Object.assign(document.createElement('div'), { className: 'ri-toast', textContent: fresh ? '★ Game installed' : '★ Already installed' });
     document.body.append(t); setTimeout(() => t.remove(), 2200);
     blip(660, .1, 'square', .05); setTimeout(() => blip(990, .18, 'square', .05), 110);
