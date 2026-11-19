@@ -18,7 +18,6 @@ content:
     fields:
       - name: projects
         label: Projects
-        description: Top of the list shows first on the site. Drag to reorder.
         type: object
         list:
           collapsible:
@@ -49,7 +48,6 @@ content:
             required: true
           - name: blocks
             label: Post content
-            description: Shown in order inside the project window. Add a block, pick its type, and fill in only the matching field.
             type: object
             list:
               collapsible:
