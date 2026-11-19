@@ -221,6 +221,11 @@ video.post-img{display:block}
 .stats b{display:block;font:800 18px/1.1 var(--display)}
 .stats span{font-size:11px;color:var(--muted)}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 14px}
+.ksfx{width:24px;height:18px;display:grid;place-items:center;color:var(--ink);border-radius:4px;position:relative}
+.ksfx svg{width:22px;height:15px}
+.ksfx:hover{background:var(--chrome)}
+.ksfx.off{color:var(--muted);opacity:.55}
+.ksfx.off::after{content:"";position:absolute;left:2px;right:2px;top:50%;height:2px;background:var(--orange);transform:rotate(-30deg);border-radius:2px}
 .wall{width:16px;height:16px;border-radius:50%;border:var(--stroke) solid var(--ink);background:conic-gradient(var(--pink) 0 25%,var(--mint) 0 50%,var(--blue) 0 75%,var(--yellow) 0)}
 
 /* ===== Render Invaders ===== */
