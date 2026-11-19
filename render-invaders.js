@@ -96,6 +96,22 @@
     document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
   }
 
+  // ---------- PC → phone hand-off: a QR code that reopens this score card on the phone ----------
+  let qrLib = null;
+  function loadQR() {
+    return qrLib ||= new Promise((ok, fail) => {
+      if (window.qrcode) return ok(window.qrcode);
+      const s = Object.assign(document.createElement('script'), { src: 'https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js' });
+      s.onload = () => ok(window.qrcode); s.onerror = fail; document.head.append(s);
+    });
+  }
+  const storyLink = (score, result, bestScore) => `${location.origin}/?story=${score}-${result === 'win' ? 'w' : 'f'}-${bestScore}`;
+  async function renderQR(box, link) {
+    const qrcode = await loadQR(), q = qrcode(0, 'M');
+    q.addData(link); q.make();
+    box.innerHTML = q.createSvgTag({ cellSize: 3, margin: 2, scalable: true });
+  }
+
   APPS.invaders = function () {
     const el = openWin('invaders', {
       title: 'Render Invaders', w: 560,
@@ -130,7 +146,17 @@
       if (S.score > best) { best = S.score; try { localStorage.setItem('ri-best', best); } catch {} }
       blip(result === 'win' ? 660 : 200, .5, 'triangle', .07, result === 'win' ? 400 : -150);
       const round = S; round.story = null;
-      makeStoryCard(round.score, result, best).then(file => { round.story = file; const b = stage.querySelector('.ri-share'); if (b && S === round) { b.disabled = false; b.textContent = canShareFiles(file) ? 'Share to Story' : 'Save story image'; } });
+      makeStoryCard(round.score, result, best).then(file => {
+        round.story = file;
+        const b = stage.querySelector('.ri-share'); if (!b || S !== round) return;
+        b.disabled = false;
+        if (canShareFiles(file)) { b.textContent = 'Share to Story'; return; }
+        b.textContent = 'Save story image';
+        const box = stage.querySelector('.ri-qr');
+        renderQR(box, storyLink(round.score, result, best))
+          .then(() => { box.hidden = false; stage.querySelector('.ri-qr-note').hidden = false; })
+          .catch(() => {}); // offline or blocked: the download button still works
+      });
       overlay();
     }
 
@@ -234,9 +260,9 @@
         card.innerHTML = `<h3 class="ri-title" style="color:${win ? C.ok : C.fail}">${win ? 'FINAL CUT<br>APPROVED' : 'MISSION<br>FAILED'}</h3>
           <p class="ri-big">Score ${S.score}</p>
           <p class="ri-go">Tap to retry</p>
-          <button class="ri-share" disabled>Making story image…</button>`;
+          <div class="ri-share-row"><div class="ri-qr" hidden></div><div class="ri-share-col"><button class="ri-share" disabled>Making story image…</button><p class="ri-qr-note" hidden>Scan to post it<br>to your Instagram Story</p></div></div>`;
         const sb = card.querySelector('.ri-share');
-        sb.addEventListener('pointerdown', e => e.stopPropagation());
+        card.querySelector('.ri-share-row').addEventListener('pointerdown', e => e.stopPropagation()); // QR + button don't restart
         sb.addEventListener('click', e => { e.stopPropagation(); shareStory(S.story, S.score); });
       }
       card.addEventListener('pointerdown', () => { card.remove(); newGame(); });
@@ -301,4 +327,22 @@
     if (Math.max(ax, ay) < 30) return;
     feed(ax > ay ? (dx > 0 ? 'right' : 'left') : (dy > 0 ? 'down' : 'up'));
   });
+  // ---------- opened from the QR code: ?story=<score>-<w|f>-<best> ----------
+  const m = new URLSearchParams(location.search).get('story')?.match(/^(\d{1,6})-([wf])-(\d{1,6})$/);
+  if (m) {
+    history.replaceState(null, '', location.pathname);
+    const score = +m[1], result = m[2] === 'w' ? 'win' : 'fail', bestScore = Math.max(+m[3], score);
+    window.addEventListener('load', async () => {
+      const file = await makeStoryCard(score, result, bestScore);
+      if (!file) return;
+      const url = URL.createObjectURL(file), phone = canShareFiles(file);
+      const w = openWin('story', {
+        title: 'Your Render Invaders score', w: 420,
+        body: `<div class="ri-story"><img src="${url}" alt="Render Invaders score card: ${score}">
+          <button class="ri-share">${phone ? 'Share to Story' : 'Save story image'}</button>
+          <p class="ri-small">${phone ? 'Pick Instagram → Story in the share menu.' : 'Open this link on your phone to share to Instagram.'}</p></div>`,
+      });
+      w.querySelector('.ri-share').onclick = () => shareStory(file, score);
+    });
+  }
 })();
