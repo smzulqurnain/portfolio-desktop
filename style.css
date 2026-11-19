@@ -57,7 +57,7 @@ img{display:block;max-width:100%}
 .widget{position:fixed;z-index:5;left:50%;top:calc(50% - 30px);transform:translate(-50%,-50%);display:grid;grid-template-columns:268px 160px;grid-template-rows:auto auto;gap:8px;animation:wpop .5s .1s cubic-bezier(.2,1.4,.4,1) both}
 .widget[hidden]{display:none}
 @keyframes wpop{from{opacity:0;transform:translate(-50%,-44%) scale(.92)}}
-.wg{background:var(--paper);border:var(--stroke) solid var(--ink);border-radius:var(--r-win);box-shadow:var(--ledge);text-align:left}
+.wg{background:var(--paper);border:var(--stroke) solid var(--ink);border-radius:var(--r-win);box-shadow:none;text-align:left}
 button.wg{transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
 button.wg:hover{transform:translateY(-3px)}
 .wg-profile{display:flex;align-items:center;gap:12px;padding:12px 14px}
