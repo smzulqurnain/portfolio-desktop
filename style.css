@@ -242,6 +242,8 @@ video.post-img{display:block}
 .ri-mid{color:var(--orange)}
 
 .ri-toast{position:fixed;left:50%;top:48px;transform:translateX(-50%);z-index:9500;background:var(--ink);color:var(--yellow);font:700 13px var(--mono);padding:8px 14px;border-radius:999px;box-shadow:0 3px 0 var(--chrome),0 3px 0 2px var(--ink);animation:ritoast 2.2s ease both;pointer-events:none}
+.dock .ri-installing{animation:riinstall .9s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes riinstall{0%{transform:translateY(30px) scale(.2);opacity:0}45%{transform:translateY(-18px) scale(1.15);opacity:1}70%{transform:translateY(0) scale(.95)}85%{transform:translateY(-6px)}100%{transform:none}}
 @keyframes ritoast{0%{opacity:0;transform:translate(-50%,-8px)}12%,80%{opacity:1;transform:translate(-50%,0)}100%{opacity:0}}
 
 /* ===== dock ===== */

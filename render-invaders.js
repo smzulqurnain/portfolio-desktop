@@ -215,8 +215,24 @@
     pos = step === CODE[pos] ? pos + 1 : (step === CODE[0] ? 1 : 0);
     if (pos === CODE.length) { pos = 0; unlock(); }
   }
+  // the dock icon only exists once the game is "installed"
+  const ICON = `<span class="tip" aria-hidden="true">Render Invaders</span><svg viewBox="0 0 40 40"><rect x="3" y="5" width="34" height="30" rx="7" fill="var(--yellow)" stroke="var(--ink)" stroke-width="2.4"/><path d="M14 19a6 6 0 0 1 12 0" fill="var(--mint)" stroke="var(--ink)" stroke-width="2"/><ellipse cx="20" cy="21" rx="11" ry="3.6" fill="#fff" stroke="var(--ink)" stroke-width="2"/><path d="M15 25l-2 4M20 25v4M25 25l2 4" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/></svg>`;
+  function installIcon(animate) {
+    const dock = document.querySelector('.dock');
+    if (!dock || dock.querySelector('[data-open="invaders"]')) return false;
+    const b = Object.assign(document.createElement('button'), { innerHTML: ICON });
+    b.dataset.open = 'invaders'; b.setAttribute('aria-label', 'Render Invaders');
+    if (animate) b.classList.add('ri-installing');
+    dock.append(b);
+    return true;
+  }
+  // stays installed for this visitor on later visits
+  try { if (localStorage.getItem('ri-installed')) installIcon(false); } catch {}
+
   function unlock() {
-    const t = Object.assign(document.createElement('div'), { className: 'ri-toast', textContent: '★ Cheat code accepted' });
+    const fresh = installIcon(true);
+    try { localStorage.setItem('ri-installed', '1'); } catch {}
+    const t = Object.assign(document.createElement('div'), { className: 'ri-toast', textContent: fresh ? '★ Game installed' : '★ Already installed' });
     document.body.append(t); setTimeout(() => t.remove(), 2200);
     blip(660, .1, 'square', .05); setTimeout(() => blip(990, .18, 'square', .05), 110);
     APPS.invaders();
