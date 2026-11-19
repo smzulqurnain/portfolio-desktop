@@ -1,9 +1,13 @@
 # Pages CMS config: https://pagescms.org/docs
 # Sign in at https://app.pagescms.org with GitHub and pick this repo.
 
+# media is a list: Pages CMS's save check reads the first entry (a single map is ignored there)
 media:
-  input: assets
-  output: assets
+  - name: assets
+    label: Images & clips
+    input: assets
+    output: assets
+    extensions: [jpg, jpeg, png, gif, webp, avif, svg, mp4, webm, mov]
 
 content:
   - name: projects
