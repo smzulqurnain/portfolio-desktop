@@ -203,7 +203,8 @@
       startAt = performance.now();
       const total = seq.length * CLIP_S + END_S;
       const tick = now => {
-        const sec = (now - startAt) / 1000;
+        // rAF's timestamp can be a few ms earlier than startAt on the first frame
+        const sec = Math.max(0, (now - startAt) / 1000);
         if (sec >= total || !document.body.contains(el)) { frame(total - .001); playing = false; render(); onDone?.(); return; }
         frame(sec); raf = requestAnimationFrame(tick);
       };
