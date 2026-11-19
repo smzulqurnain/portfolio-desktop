@@ -2,7 +2,7 @@
 // You're the UFO. Blast the "bad edits" before they reach the final cut.
 (() => {
   const W = 640, H = 420, ROUND_S = 45, LIVES = 3;
-  const C = { bg: '#16161c', ink: '#141414', star: '#cfcfd6', ufo: '#f5c24f', dome: '#8fd49a', shot: '#ffffff', red: '#ef6a3e', pink: '#f08fb6', blue: '#9fb4f5', mint: '#6fcbb8', yellow: '#f5c24f', fail: '#ef6a3e', ok: '#8fd49a' };
+  const C = { bg: '#16161c', ink: '#18191f', star: '#cfcfd6', ufo: '#f5c24f', dome: '#8fd49a', shot: '#ffffff', red: '#ef6a3e', pink: '#f08fb6', blue: '#9fb4f5', mint: '#6fcbb8', yellow: '#f5c24f', fail: '#ef6a3e', ok: '#8fd49a' };
   // the bad edits: label, points, colour, draw
   const FOES = {
     error:   { label: 'Render error',  pts: 10, col: C.red },

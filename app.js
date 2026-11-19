@@ -53,17 +53,17 @@ const player = (u, title, shape = 'wide') => {
 const paras = t => esc(t).split(/\n{2,}/).map(x => `<p>${x.replace(/\n/g, '<br>')}</p>`).join('');
 
 const FOLDERS = {
-  social: { name: 'Social', page: 'social-media', color: 'f08fb6', soft: 'var(--pink-soft)', blurb: 'Launches, KOL and always-on content' },
-  tvc:    { name: 'TVC', page: 'tvc-motion', color: 'cdebf7', soft: 'var(--blue-soft)', blurb: 'Broadcast spots and DOOH' },
-  events: { name: 'Events', page: 'events', color: 'ef6a3e', soft: '#fbd3c4', blurb: 'Stage openers and event visuals' },
-  hobby:  { name: 'Hobby', page: 'hobby', color: 'f5c24f', soft: 'var(--yellow-soft)', blurb: 'AI tests, renders, side projects' },
+  social: { name: 'Social', page: 'social-media', color: 'ff89bb', soft: 'var(--pink-soft)', blurb: 'Launches, KOL and always-on content' },
+  tvc:    { name: 'TVC', page: 'tvc-motion', color: 'e9e7fc', soft: 'var(--blue-soft)', blurb: 'Broadcast spots and DOOH' },
+  events: { name: 'Events', page: 'events', color: 'f95a2c', soft: '#ffd9cc', blurb: 'Stage openers and event visuals' },
+  hobby:  { name: 'Hobby', page: 'hobby', color: 'ffbd12', soft: 'var(--yellow-soft)', blurb: 'AI tests, renders, side projects' },
 };
-const LOGO_COLORS = ['#2448d9', '#ef6a3e', '#f5c24f', '#f08fb6', '#6fcbb8', '#2448d9', '#ef6a3e', '#f5c24f', '#f08fb6', '#6fcbb8'];
-const AVATAR = `<svg viewBox="0 0 92 92" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+const LOGO_COLORS = ['#1947e6', '#f95a2c', '#ffbd12', '#ff89bb', '#00c6ae', '#1947e6', '#f95a2c', '#ffbd12', '#ff89bb', '#00c6ae'];
+const AVATAR = `<svg viewBox="0 0 92 92" fill="none" stroke="#18191f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
   <path d="M22 92c2-16 12-24 24-24s22 8 24 24" fill="#fff"/><path d="M38 68v-8h16v8" fill="#fff"/>
   <ellipse cx="46" cy="44" rx="17" ry="20" fill="#fff"/>
-  <path d="M29 40c0-14 8-22 18-22s17 7 17 20c-6-2-12-7-14-12-4 8-13 12-21 14z" fill="#141414"/>
-  <circle cx="39.5" cy="46" r="1.6" fill="#141414"/><circle cx="52.5" cy="46" r="1.6" fill="#141414"/>
+  <path d="M29 40c0-14 8-22 18-22s17 7 17 20c-6-2-12-7-14-12-4 8-13 12-21 14z" fill="#18191f"/>
+  <circle cx="39.5" cy="46" r="1.6" fill="#18191f"/><circle cx="52.5" cy="46" r="1.6" fill="#18191f"/>
   <path d="M46 48v6h-3M41 58c3 2 7 2 10 0"/><path d="M33 46h12M47 46h12" stroke-width="1.6"/><rect x="33" y="42" width="11" height="8" rx="4"/><rect x="48" y="42" width="11" height="8" rx="4"/></svg>`;
 const avatarHtml = () => { const u = safeUrl(S.avatar); return u ? `<img src="${u}" alt="${esc(S.name || 'Profile picture')}">` : AVATAR; };
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -273,7 +273,7 @@ const APPS = {
 };
 
 function folderSvg(col) {
-  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 46'%3E%3Cpath d='M2 7a4 4 0 014-4h14l4 5h26a4 4 0 014 4v28a4 4 0 01-4 4H6a4 4 0 01-4-4z' fill='%23${col}' stroke='%23141414' stroke-width='2.4' stroke-linejoin='round'/%3E%3Cpath d='M2 15h52' stroke='%23141414' stroke-width='2'/%3E%3C/svg%3E")`;
+  return `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 46'%3E%3Cpath d='M2 7a4 4 0 014-4h14l4 5h26a4 4 0 014 4v28a4 4 0 01-4 4H6a4 4 0 01-4-4z' fill='%23${col}' stroke='%2318191f' stroke-width='2.4' stroke-linejoin='round'/%3E%3Cpath d='M2 15h52' stroke='%2318191f' stroke-width='2'/%3E%3C/svg%3E")`;
 }
 
 function openFolder(key) {
@@ -356,7 +356,7 @@ document.addEventListener('keydown', e => {
 });
 
 // wallpaper: kit colours
-const WALLS = ['#c56a6c', '#59c3af', '#2448d9', '#f5c24f', '#f08fb6'];
+const WALLS = ['#c56a6c', '#59c3af', '#1947e6', '#ffbd12', '#ff89bb'];
 let wall = 0;
 try { wall = +localStorage.getItem('wall') || 0; } catch {}
 const setWall = () => { document.body.style.setProperty('--desk', WALLS[wall % WALLS.length]); try { localStorage.setItem('wall', wall % WALLS.length); } catch {} };

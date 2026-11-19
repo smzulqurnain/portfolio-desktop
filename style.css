@@ -1,24 +1,25 @@
 /* ===== tokens (Contra wireframe-style: ink outlines, flat fills, chunky radius) ===== */
 :root{
-  --ink:#141414;
+  --ink:#18191f;
   --paper:#ffffff;
-  --muted:#6b6b6b;
+  --muted:#474a57;
   --desk:#c56a6c;
   --grid-line:rgba(255,255,255,.85);
   --chrome:#efefef;
-  /* Contra wireframe kit palette (sampled from the kit) */
-  --blue:#2448d9;
-  --pink:#f08fb6;
-  --orange:#ef6a3e;
-  --yellow:#f5c24f;
-  --mint:#6fcbb8;
-  --blue-soft:#cdebf7;
-  --pink-soft:#f9d3e4;
-  --yellow-soft:#fff0a8;
+  /* Contra wireframe kit palette (exact values from the kit's Illustrator file) */
+  --blue:#1947e6;
+  --pink:#ff89bb;
+  --orange:#f95a2c;
+  --yellow:#ffbd12;
+  --mint:#00c6ae;
+  --blue-soft:#e9e7fc;
+  --pink-soft:#ffc7de;
+  --yellow-soft:#fff4cc;
+  --mint-soft:#d6fcf7;
   --red:var(--orange);
   --green:var(--mint);
   --stroke:2px;
-  --r-win:14px;
+  --r-win:12px;
   --r-card:12px;
   --r-ctl:999px;
   --ledge:0 4px 0 -1px var(--chrome), 0 4px 0 1px var(--ink);
@@ -85,7 +86,7 @@ button.wg:hover{transform:translateY(-3px)}
 /* ===== windows ===== */
 #desk{position:fixed;inset:34px 0 0 0;z-index:10;pointer-events:none}
 .win{position:absolute;pointer-events:auto;background:var(--paper);border:var(--stroke) solid var(--ink);border-radius:var(--r-win);
-  box-shadow:var(--ledge),var(--shadow);display:flex;flex-direction:column;min-width:240px;max-width:calc(100vw - 24px);max-height:calc(100vh - 150px);
+  box-shadow:none;display:flex;flex-direction:column;min-width:240px;max-width:calc(100vw - 24px);max-height:calc(100vh - 150px);
   animation:pop .32s cubic-bezier(.2,1.4,.4,1) both}
 .win.closing{animation:shut .18s ease-in both}
 .win.max{transform:none;left:12px!important;top:10px!important;width:calc(100vw - 24px)!important;height:calc(100vh - 160px)!important;max-height:none}
@@ -100,8 +101,8 @@ button.wg:hover{transform:translateY(-3px)}
 .dot.max{cursor:default}
 .win-title{flex:1;margin:0;font-size:12px;font-weight:600;text-align:center;padding-right:43px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .win-body{overflow:auto;flex:1;min-height:0}
-.win-foot{height:9px;border-top:var(--stroke) solid var(--ink);flex:none;cursor:grab;touch-action:none}
-.win.dragging{transition:none;box-shadow:var(--ledge),0 28px 50px -18px rgba(0,0,0,.5);transform:rotate(-.6deg)}
+.win-foot{height:8px;flex:none;cursor:grab;touch-action:none}
+.win.dragging{transition:none;transform:rotate(-.6deg)}
 .win.dragging,.win.dragging *{cursor:grabbing!important;user-select:none}
 .win:not(.front) .win-bar{color:var(--muted)}
 
@@ -249,7 +250,7 @@ video.post-img{display:block}
 /* ===== dock ===== */
 .dock-wrap{position:fixed;bottom:14px;left:0;right:0;z-index:9000;display:flex;justify-content:center;pointer-events:none}
 .dock{pointer-events:auto;display:flex;gap:14px;align-items:flex-end;padding:12px 40px 18px;position:relative}
-.dock::before{content:"";position:absolute;inset:0;z-index:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 80' preserveAspectRatio='none'%3E%3Cpath d='M18 1H382L399 67H1Z' fill='%23efefef' stroke='%23141414' stroke-width='2' vector-effect='non-scaling-stroke' stroke-linejoin='round'/%3E%3Cpath d='M1 67H399V79H1Z' fill='%23d4d4d4' stroke='%23141414' stroke-width='2' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.dock::before{content:"";position:absolute;inset:0;z-index:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 80' preserveAspectRatio='none'%3E%3Cpath d='M18 1H382L399 67H1Z' fill='%23efefef' stroke='%2318191f' stroke-width='2' vector-effect='non-scaling-stroke' stroke-linejoin='round'/%3E%3Cpath d='M1 67H399V79H1Z' fill='%23d4d4d4' stroke='%2318191f' stroke-width='2' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E") center/100% 100% no-repeat}
 .dock button{width:44px;height:44px;position:relative;transition:transform .22s cubic-bezier(.3,1.8,.5,1);z-index:1}
 .dock button svg{width:100%;height:100%;overflow:visible}
 .dock button:hover{transform:translateY(-8px) scale(1.18)}
