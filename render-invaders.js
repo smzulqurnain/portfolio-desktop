@@ -222,7 +222,10 @@
     if (!dock || dock.querySelector('[data-open="invaders"]')) return false;
     const b = Object.assign(document.createElement('button'), { innerHTML: ICON });
     b.dataset.open = 'invaders'; b.setAttribute('aria-label', 'Render Invaders');
-    if (animate) b.classList.add('ri-installing');
+    if (animate) { // bounce in, then hand back to the normal dock hover
+      b.classList.add('ri-installing');
+      b.addEventListener('animationend', () => b.classList.remove('ri-installing'), { once: true });
+    }
     dock.append(b);
     return true;
   }
