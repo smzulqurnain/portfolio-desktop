@@ -59,6 +59,43 @@
     ctx.restore();
   }
 
+  // ---------- Instagram-story score card (1080x1920 PNG) ----------
+  async function makeStoryCard(score, result, bestScore) {
+    try { await document.fonts?.ready; } catch {}
+    const SW = 1080, SH = 1920, cv = document.createElement('canvas');
+    cv.width = SW; cv.height = SH;
+    const x = cv.getContext('2d'), win = result === 'win';
+    x.fillStyle = C.bg; x.fillRect(0, 0, SW, SH);
+    let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280; // same starfield every time
+    for (let i = 0; i < 140; i++) { x.globalAlpha = .3 + rnd() * .6; x.fillStyle = C.star; const s = rnd() < .2 ? 6 : 3; x.fillRect(rnd() * SW, rnd() * SH, s, s); }
+    x.globalAlpha = 1; x.textAlign = 'center';
+    x.fillStyle = '#9fa4b4'; x.font = '600 34px "JetBrains Mono", monospace'; x.fillText('SMZULQURNAIN.WORK PRESENTS', SW / 2, 230);
+    x.fillStyle = C.yellow; x.font = '800 160px "Bricolage Grotesque", sans-serif';
+    x.fillText('RENDER', SW / 2, 420); x.fillText('INVADERS', SW / 2, 570);
+    x.fillStyle = win ? C.ok : C.fail; x.font = '800 70px "Bricolage Grotesque", sans-serif';
+    x.fillText(win ? 'FINAL CUT APPROVED' : 'MISSION FAILED', SW / 2, 790);
+    x.fillStyle = '#9fa4b4'; x.font = '600 40px "JetBrains Mono", monospace'; x.fillText('SCORE', SW / 2, 930);
+    x.fillStyle = '#fff'; x.font = '800 270px "Bricolage Grotesque", sans-serif'; x.fillText(String(score), SW / 2, 1170);
+    x.fillStyle = '#9fa4b4'; x.font = '600 40px "JetBrains Mono", monospace'; x.fillText(`BEST ${bestScore}`, SW / 2, 1260);
+    ['glitch', 'dropped', 'jump', 'error'].forEach((kind, i) => { x.save(); x.translate(SW / 2 + (i - 1.5) * 190, 1440); x.scale(3.4, 3.4); drawFoe(x, { x: 0, y: 0, kind }, 1); x.restore(); });
+    x.fillStyle = C.shot; [0, 1, 2].forEach(i => x.fillRect(SW / 2 - 8, 1520 + i * 50, 16, 34));
+    x.save(); x.translate(SW / 2, 1700); x.scale(4.2, 4.2); drawUfo(x, 0, 0, false); x.restore();
+    x.fillStyle = '#fff'; x.font = '700 46px Inter, sans-serif'; x.fillText('Can you beat it?  →  smzulqurnain.work', SW / 2, 1840);
+    const blob = await new Promise(r => cv.toBlob(r, 'image/png'));
+    return blob ? new File([blob], `render-invaders-${score}.png`, { type: 'image/png' }) : null;
+  }
+  const canShareFiles = f => !!(f && navigator.canShare && navigator.canShare({ files: [f] }));
+  function shareStory(file, score) {
+    if (!file) return;
+    if (canShareFiles(file)) { // phones: the share sheet, where Instagram → Story lives
+      // image only: adding a caption makes some phones offer Instagram DMs instead of Stories
+      navigator.share({ files: [file] }).catch(() => {});
+      return;
+    }
+    const a = Object.assign(document.createElement('a'), { href: URL.createObjectURL(file), download: file.name }); // computers: save the image
+    document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  }
+
   APPS.invaders = function () {
     const el = openWin('invaders', {
       title: 'Render Invaders', w: 560,
@@ -92,6 +129,8 @@
       state = 'over'; S.result = result;
       if (S.score > best) { best = S.score; try { localStorage.setItem('ri-best', best); } catch {} }
       blip(result === 'win' ? 660 : 200, .5, 'triangle', .07, result === 'win' ? 400 : -150);
+      const round = S; round.story = null;
+      makeStoryCard(round.score, result, best).then(file => { round.story = file; const b = stage.querySelector('.ri-share'); if (b && S === round) { b.disabled = false; b.textContent = canShareFiles(file) ? 'Share to Story' : 'Save story image'; } });
       overlay();
     }
 
@@ -194,7 +233,11 @@
         const win = S.result === 'win';
         card.innerHTML = `<h3 class="ri-title" style="color:${win ? C.ok : C.fail}">${win ? 'FINAL CUT<br>APPROVED' : 'MISSION<br>FAILED'}</h3>
           <p class="ri-big">Score ${S.score}</p>
-          <p class="ri-go">Tap to retry</p>`;
+          <p class="ri-go">Tap to retry</p>
+          <button class="ri-share" disabled>Making story image…</button>`;
+        const sb = card.querySelector('.ri-share');
+        sb.addEventListener('pointerdown', e => e.stopPropagation());
+        sb.addEventListener('click', e => { e.stopPropagation(); shareStory(S.story, S.score); });
       }
       card.addEventListener('pointerdown', () => { card.remove(); newGame(); });
       stage.append(card);

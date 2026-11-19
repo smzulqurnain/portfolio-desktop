@@ -239,6 +239,9 @@ video.post-img{display:block}
 .ri-legend{list-style:none;margin:6px 0 10px;padding:0;display:grid;grid-template-columns:repeat(2,auto);gap:4px 18px;font-size:12px;text-align:left}
 .ri-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
 .ri-legend b{opacity:.6;font-weight:600;margin-left:4px}
+.ri-share{margin-top:12px;background:var(--yellow);color:var(--ink);border:var(--stroke) solid var(--ink);border-radius:999px;padding:8px 16px;font-weight:800;cursor:pointer}
+.ri-share:hover:not(:disabled){transform:translateY(-2px)}
+.ri-share:disabled{opacity:.6;cursor:default}
 .ri-hud{display:flex;justify-content:space-between;gap:10px;padding:8px 12px;background:#fdf7ef;font-weight:700;font-size:12.5px;border-top:var(--stroke) solid var(--ink)}
 .ri-mid{color:var(--orange)}
 
