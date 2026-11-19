@@ -198,6 +198,10 @@ const APPS = {
       ['cat services.txt', S.services || ''],
       ['ls work/', `${PROJECTS.length} projects → click the globe in the dock`],
       ['open showreel.mp4', '→ hit ▶ in the dock'],
+      // Konami hint: keys on a computer, swipes on a touch screen
+      ['cat .secret', matchMedia('(pointer: coarse)').matches
+        ? 'swipe ↑ ↑ ↓ ↓ ← → ← → on the desktop, then tap tap'
+        : 'press ↑ ↑ ↓ ↓ ← → ← → B A on the desktop'],
     ];
     let i = 0;
     const typeLine = () => {
