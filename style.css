@@ -179,7 +179,7 @@ video.post-img{display:block}
 .file img{width:100%;aspect-ratio:16/10;object-fit:cover;border:var(--stroke) solid var(--ink);border-radius:10px;transition:transform .18s cubic-bezier(.3,1.6,.5,1)}
 .file:hover img{transform:rotate(-2deg) scale(1.04)}
 .folder-note{padding:0 16px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:12px}
-.finder{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:18px 8px;padding:20px 16px 24px;background:#fbf7ee}
+.finder{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:18px 8px;padding:20px 16px 24px;background:var(--paper)}
 .finder button{display:flex;flex-direction:column;align-items:center;gap:7px;padding:6px 4px;border-radius:10px}
 .finder button:hover,.finder button:focus-visible{background:rgba(20,20,20,.06)}
 .finder .ico{width:64px;height:52px}
