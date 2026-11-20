@@ -409,8 +409,8 @@
           ]
         },
         {
-          "kind": "image",
-          "image": "assets/projects/mitsubishi-triton-ai-test/11.jpg"
+          "kind": "text",
+          "text": "Disclaimers\n\nThis test video is not affiliated with any brand.\nAll trademarks and logos belong to their respective owners.\nThis video is solely for educational purposes."
         }
       ]
     },
