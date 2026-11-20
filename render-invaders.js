@@ -70,17 +70,17 @@
     for (let i = 0; i < 140; i++) { x.globalAlpha = .3 + rnd() * .6; x.fillStyle = C.star; const s = rnd() < .2 ? 6 : 3; x.fillRect(rnd() * SW, rnd() * SH, s, s); }
     x.globalAlpha = 1; x.textAlign = 'center';
     x.fillStyle = '#9fa4b4'; x.font = '600 34px "JetBrains Mono", monospace'; x.fillText('SMZULQURNAIN.WORK PRESENTS', SW / 2, 230);
-    x.fillStyle = C.yellow; x.font = '800 160px "Bricolage Grotesque", sans-serif';
+    x.fillStyle = C.yellow; x.font = '800 160px Montserrat, sans-serif';
     x.fillText('RENDER', SW / 2, 420); x.fillText('INVADERS', SW / 2, 570);
-    x.fillStyle = win ? C.ok : C.fail; x.font = '800 70px "Bricolage Grotesque", sans-serif';
+    x.fillStyle = win ? C.ok : C.fail; x.font = '800 70px Montserrat, sans-serif';
     x.fillText(win ? 'FINAL CUT APPROVED' : 'MISSION FAILED', SW / 2, 790);
     x.fillStyle = '#9fa4b4'; x.font = '600 40px "JetBrains Mono", monospace'; x.fillText('SCORE', SW / 2, 930);
-    x.fillStyle = '#fff'; x.font = '800 270px "Bricolage Grotesque", sans-serif'; x.fillText(String(score), SW / 2, 1170);
+    x.fillStyle = '#fff'; x.font = '800 270px Montserrat, sans-serif'; x.fillText(String(score), SW / 2, 1170);
     x.fillStyle = '#9fa4b4'; x.font = '600 40px "JetBrains Mono", monospace'; x.fillText(`BEST ${bestScore}`, SW / 2, 1260);
     ['glitch', 'dropped', 'jump', 'error'].forEach((kind, i) => { x.save(); x.translate(SW / 2 + (i - 1.5) * 190, 1440); x.scale(3.4, 3.4); drawFoe(x, { x: 0, y: 0, kind }, 1); x.restore(); });
     x.fillStyle = C.shot; [0, 1, 2].forEach(i => x.fillRect(SW / 2 - 8, 1520 + i * 50, 16, 34));
     x.save(); x.translate(SW / 2, 1700); x.scale(4.2, 4.2); drawUfo(x, 0, 0, false); x.restore();
-    x.fillStyle = '#fff'; x.font = '700 46px Inter, sans-serif'; x.fillText('Can you beat it?  →  smzulqurnain.work', SW / 2, 1840);
+    x.fillStyle = '#fff'; x.font = '700 40px Montserrat, sans-serif'; x.fillText('Can you beat it?  →  smzulqurnain.work', SW / 2, 1840);
     const blob = await new Promise(r => cv.toBlob(r, 'image/png'));
     return blob ? new File([blob], `render-invaders-${score}.png`, { type: 'image/png' }) : null;
   }
